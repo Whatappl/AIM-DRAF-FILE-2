@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIM DRIVE XIT</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Share+Tech+Mono&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Share Tech Mono', monospace;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #05020a;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Matrix Code Stream Canvas Background */
+        #bgCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        /* Modern Rounded Panel Card */
+        .card {
+            background: rgba(11, 6, 20, 0.9);
+            border: 2px solid rgba(177, 0, 255, 0.35);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 440px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), 0 0 40px rgba(177, 0, 255, 0.2);
+            backdrop-filter: blur(25px);
+            position: relative;
+        }
+
+        .hidden { display: none !important; opacity: 0; }
+
+        /* Typography & Structure elements */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            background: linear-gradient(180deg, #ffffff 30%, #e2c2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h1 span {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff0055, #b100ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(177, 0, 255, 0.6);
+        }
+
+        .status-node {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: #00ffaa;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-node span {
+            width: 8px; height: 8px;
+            background: #00ffaa;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffaa;
+            animation: pulseDot 0.8s infinite alternate;
+        }
+        @keyframes pulseDot { 0% { transform: scale(0.7); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }
+
+        /* Celebration Banner Layout */
+        .milestone-banner {
+            background: linear-gradient(90deg, rgba(255, 0, 85, 0.1), rgba(177, 0, 255, 0.1));
+            border-left: 4px solid #ff0055;
+            border-right: 4px solid #b100ff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #f1eaff;
+        }
+        .milestone-banner strong {
+            color: #b100ff;
+            text-shadow: 0 0 10px rgba(177, 0, 255, 0.5);
+        }
+
+        /* Input Elements */
+        .label-text { color: #b100ff; font-size: 0.85rem; text-align: left; margin-bottom: 6px; letter-spacing: 2px; }
+        .input-wrapper { position: relative; margin-bottom: 25px; }
+        input {
+            width: 100%; background: #040208; border: 1px solid #2d184c; padding: 16px 16px 16px 42px;
+            color: #fff; font-size: 1.1rem; outline: none; letter-spacing: 2px; transition: all 0.3s; border-radius: 30px;
+        }
+        input:focus { border-color: #ff0055; box-shadow: 0 0 15px rgba(255,0,85,0.2); }
+        input:disabled { opacity: 0.2; cursor: not-allowed; }
+        .input-wrapper::before { content: '>'; position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #ff0055; font-weight: bold; }
+
+        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; }
+        .nav-btn {
+            background: #080410; border: 1px solid #23163a; color: #9c8fb2; padding: 14px; font-size: 0.95rem;
+            text-decoration: none; text-transform: uppercase; text-align: center; transition: all 0.2s; border-radius: 30px;
+        }
+        .nav-btn:hover { background: #130a24; color: #fff; border-color: #b100ff; }
+
+        /* General Buttons */
+        .action-link-btn, .submit-btn, .task-btn {
+            display: block; width: 100%; padding: 16px; font-size: 1.05rem; text-transform: uppercase; border-radius: 30px; text-decoration: none; text-align: center; transition: all 0.3s ease;
+        }
+        .action-link-btn { background: #110722; border: 1px solid #b100ff; color: #ffffff; margin-bottom: 25px; letter-spacing: 1px; }
+        .action-link-btn:hover { background: #b100ff; color: #000; box-shadow: 0 0 25px rgba(177, 0, 255, 0.4); }
+
+        .submit-btn { background: #0f0b18; border: 1px solid #211735; color: #494158; cursor: not-allowed; letter-spacing: 1.5px; }
+        .submit-btn.active { background: linear-gradient(90deg, #ff0055, #b100ff); color: #ffffff; cursor: pointer; box-shadow: 0 4px 15px rgba(177,0,255,0.3); border: none; }
+        .submit-btn.active:hover { filter: brightness(1.2); }
+
+        /* Task Verification Rows */
+        .task-btn { display: flex; justify-content: space-between; align-items: center; background: #090512; border: 1px solid #23163a; color: #a39bb0; margin-bottom: 12px; cursor: pointer; padding: 16px 22px; }
+        .task-btn.active { border-color: #ff0055; color: #fff; }
+        .task-btn.completed { border-color: #00ffaa; background: rgba(0, 255, 170, 0.03); color: #00ffaa; }
+        .task-btn:disabled, .task-btn.locked { opacity: 0.25; cursor: not-allowed; border-color: #150e22; }
+        .counter-badge { background: #ff0055; padding: 2px 10px; color: #fff; font-size: 0.85rem; border-radius: 20px; }
+        .task-btn.completed .counter-badge { background: #00ffaa; color: #000; }
+
+        .progress-box { margin: 25px 0; font-size: 0.9rem; color: #8e859e; text-align: left; }
+        .bar-bg { width: 100%; background: #050309; height: 8px; margin-top: 8px; border: 1px solid #1f1433; border-radius: 10px; overflow: hidden; }
+        .bar-fill { width: 0%; height: 100%; background: #00ffaa; transition: width 0.4s ease; border-radius: 10px; }
+
+        /* Loading Dots Animation */
+        .scan-loader-wrap { display: none; justify-content: center; align-items: center; margin: 20px 0; gap: 8px; }
+        .scanner-line { width: 6px; height: 6px; background: #b100ff; border-radius: 50%; animation: bounceScan 0.6s ease-in-out infinite alternate; }
+        .scanner-line:nth-child(2) { animation-delay: 0.15s; background: #ff0055; }
+        .scanner-line:nth-child(3) { animation-delay: 0.3s; background: #b100ff; }
+        @keyframes bounceScan { 0% { transform: translateY(5px); } 100% { transform: translateY(-5px); } }
+
+        /* Download Section */
+        .rewards-panel { margin-top: 20px; padding-top: 20px; border-top: 1px dashed #00ffaa; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+        
+        .final-btn { display: block; width: 100%; padding: 16px; font-size: 1.1rem; text-decoration: none; transition: all 0.3s ease; text-align: center; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; border-radius: 30px; font-weight: 900; }
+        .final-btn.download-max { background: linear-gradient(90deg, #00ffaa, #00b377); color: #000000; box-shadow: 0 0 25px rgba(0, 255, 170, 0.3); }
+        .final-btn.download-max:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0, 255, 170, 0.6); }
+        .final-btn.download-video { background: linear-gradient(90deg, #00bfff, #007bb3); color: #ffffff; box-shadow: 0 0 25px rgba(0, 191, 255, 0.3); }
+        .final-btn.download-video:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0, 191, 255, 0.6); }
+        .final-btn.download-key { background: linear-gradient(90deg, #ffb700, #cc9200); color: #000000; box-shadow: 0 0 25px rgba(255, 183, 0, 0.3); }
+        .final-btn.download-key:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(255, 183, 0, 0.6); }
+        .final-btn.locked { background: #07040d; color: #3e3848; border: 1px solid #1a1226; pointer-events: none; font-weight: normal; }
+
+        .contact-mod { margin-top: 25px; border-top: 1px solid #1a112c; padding-top: 15px; }
+        .contact-btn { color: #ff0055; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; font-weight: bold; }
+        .contact-btn:hover { text-shadow: 0 0 8px rgba(255,0,85,0.6); }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="card" id="mainCardFrame">
+        
+        <!-- PHASE 1: KEY GATEWAY -->
+        <div id="loginSection">
+            <h1>AIM DRIVE <br><span>XIT FILE</span></h1>
+            <div class="status-node"><span></span>VERIFICATION HUB</div>
+
+            <div class="milestone-banner">
+                🎉 <strong>CONGRATS ON 4K FOLLOWERS!</strong> 🎉<br>
+                Complete the requirements below to unlock your downloads.
+            </div>
+
+            <a href="https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E" class="action-link-btn" id="loginJoinBtn" target="_blank">
+                JOIN CHANNEL TO ENABLE INPUT
+            </a>
+
+            <div class="label-text">ENTER FILE KEY</div>
+            <div class="input-wrapper">
+                <input type="text" id="keyInput" placeholder="Join channel first..." disabled autocomplete="off">
+            </div>
+
+            <div class="grid-layout">
+                <a href="https://whatsapp.com/channel/0029VbD11EtAYlUQxZMuK045" target="_blank" class="nav-btn">GET KEY</a>
+                <a href="https://whatsapp.com/channel/0029VbD11EtAYlUQxZMuK045" target="_blank" class="nav-btn">BACKUP LINK</a>
+            </div>
+
+            <button id="submitKeyBtn" class="submit-btn" disabled>VERIFY KEY</button>
+
+            <div class="scan-loader-wrap" id="portalLoader">
+                <div class="scanner-line"></div>
+                <div class="scanner-line"></div>
+                <div class="scanner-line"></div>
+            </div>
+        </div>
+
+        <!-- PHASE 2: TASKS AND SHARING -->
+        <div id="verificationSection" class="hidden">
+            <h1>VERIFICATION</h1>
+            <p style="font-size: 0.95rem; color: #8a7f99; margin-bottom: 20px;">Complete the actions below to open your files.</p>
+            
+            <div id="lockStatus" style="color:#ff0055; font-family:'Orbitron',sans-serif; font-size:0.85rem; margin-bottom:20px; letter-spacing:1px;">
+                🔒 STATUS: LOCKED
+            </div>
+
+            <button class="task-btn active" id="vFollowBtn">
+                <span>📡 1. Follow & Turn On Notifications</span>
+                <span id="fIcon">👉</span>
+            </button>
+
+            <button class="task-btn locked" id="vReactBtn" disabled>
+                <span>🔥 2. React to Channel Post</span>
+                <span id="rIcon">🔒</span>
+            </button>
+
+            <button class="task-btn locked" id="vShareBtn" disabled>
+                <span>🔗 3. Share to 5 WhatsApp Groups</span>
+                <span class="counter-badge" id="shareCounter">0 / 5</span>
+            </button>
+
+            <div class="progress-box">
+                Tasks Done: <span id="stepsCounterTxt" style="color:#fff; font-weight:bold;">0</span> / 3
+                <div class="bar-bg"><div class="bar-fill" id="progressBar"></div></div>
+            </div>
+
+            <div class="rewards-panel">
+                <div id="downloadGridContainer">
+                    <button class="final-btn locked" id="fFilePlaceholder">🔒 DOWNLOADS LOCKED</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-mod">
+            <a href="https://wa.me/2349137895828?text=Hello%20Fearless,%20I%20need%20help%20with%20the%20Aim%20Drive%20Xit!" target="_blank" class="contact-btn">
+                CONTACT MOD
+            </a>
+        </div>
+
+    </div>
+
+    <iframe id="secureDownloaderFrame"></iframe>
+
+    <script>
+        const PASSKEY_TOKEN = "AIM DRIVE XITS";
+        const AD_CHANNEL_1  = "https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E";
+        const AD_REACT_POST = "https://whatsapp.com/channel/0029VbD11EtAYlUQxZMuK045/100";
+        
+        const FILE_SOURCE_ASSET = "https://www.mediafire.com/file/w2w9l9fghehucox/Aimdrive_x_fearless_2%25282%2529.zip/file";
+        const VIDEO_SOURCE_ASSET = "https://www.mediafire.com/file/95xkkx9q81ffuhn/AIM_DRIVE_SETUP_LINK_BY_FEARLESS.mp4/file";
+
+        const WA_FORWARD_MSG = encodeURIComponent(
+`*AIM DRIVE FULLY WORKING FOR MAIN ID🍃👇*_(FILE + SETUP)_
+
+*🔗Generator Link :* https://fearlessxaimdrive.netlify.app
+*🔗Update Channel :* https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E
+
+💬 Share with 5 groups or with your friends so you don't get errors when entering ☑️`
+        );
+
+        // --- MATRIX BACKGROUND ---
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let columns, drops = [];
+        const chars = "0101011001XXAIMDRIVEXITS//++--";
+        const fontSize = 14;
+
+        function initMatrix() {
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            columns = Math.floor(canvas.width / fontSize); drops = [];
+            for (let x = 0; x < columns; x++) drops[x] = 1;
+        }
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 2, 10, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#b100ff'; ctx.font = fontSize + "px 'Share Tech Mono'";
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        window.addEventListener('resize', initMatrix);
+        initMatrix(); setInterval(drawMatrix, 33);
+
+        // --- PHASE INTERFACE NAVIGATION ---
+        const loginJoinBtn = document.getElementById('loginJoinBtn');
+        const keyInput = document.getElementById('keyInput');
+        const submitKeyBtn = document.getElementById('submitKeyBtn');
+        const loginSection = document.getElementById('loginSection');
+        const verificationSection = document.getElementById('verificationSection');
+        const portalLoader = document.getElementById('portalLoader');
+        const mainCardFrame = document.getElementById('mainCardFrame');
+
+        loginJoinBtn.addEventListener('click', () => {
+            keyInput.removeAttribute('disabled');
+            keyInput.placeholder = "Enter key here...";
+            keyInput.focus();
+        });
+
+        keyInput.addEventListener('input', () => {
+            if (keyInput.value.trim().length > 0) {
+                submitKeyBtn.removeAttribute('disabled'); submitKeyBtn.classList.add('active');
+            } else {
+                submitKeyBtn.setAttribute('disabled', 'true'); submitKeyBtn.classList.remove('active');
+            }
+        });
+
+        submitKeyBtn.addEventListener('click', () => {
+            if (keyInput.value.trim() === PASSKEY_TOKEN) {
+                submitKeyBtn.style.display = "none"; portalLoader.style.display = "flex";
+                setTimeout(() => {
+                    loginSection.classList.add('hidden'); verificationSection.classList.remove('hidden');
+                }, 1200);
+            } else {
+                alert("❌ Wrong key! Check your channel key link again.");
+                keyInput.value = ""; submitKeyBtn.setAttribute('disabled', 'true'); submitKeyBtn.classList.remove('active');
+            }
+        });
+
+        // --- TASKS PIPELINE ---
+        let step1Completed = false, step2Completed = false, activeSharesTracker = 0;
+        const vFollowBtn = document.getElementById('vFollowBtn');
+        const vReactBtn  = document.getElementById('vReactBtn');
+        const vShareBtn  = document.getElementById('vShareBtn');
+        const shareCounter = document.getElementById('shareCounter');
+        const stepsCounterTxt = document.getElementById('stepsCounterTxt');
+        const progressBar = document.getElementById('progressBar');
+        const lockStatus = document.getElementById('lockStatus');
+        const downloadGridContainer = document.getElementById('downloadGridContainer');
+
+        vFollowBtn.addEventListener('click', () => {
+            window.open(AD_CHANNEL_1, '_blank');
+            if (!step1Completed) {
+                step1Completed = true; vFollowBtn.className = "task-btn completed";
+                document.getElementById('fIcon').innerText = "✓";
+                vReactBtn.removeAttribute('disabled'); vReactBtn.className = "task-btn active";
+                document.getElementById('rIcon').innerText = "👉"; evaluateWorkflowSystem();
+            }
+        });
+
+        vReactBtn.addEventListener('click', () => {
+            window.open(AD_REACT_POST, '_blank');
+            if (!step2Completed) {
+                step2Completed = true; vReactBtn.className = "task-btn completed";
+                document.getElementById('rIcon').innerText = "✓";
+                vShareBtn.removeAttribute('disabled'); vShareBtn.className = "task-btn active";
+                evaluateWorkflowSystem();
+            }
+        });
+
+        vShareBtn.addEventListener('click', () => {
+            window.open(`https://api.whatsapp.com/send?text=${WA_FORWARD_MSG}`, '_blank');
+            if (activeSharesTracker < 5) {
+                activeSharesTracker++; shareCounter.innerText = `${activeSharesTracker} / 5`;
+                if (activeSharesTracker === 5) {
+                    vShareBtn.className = "task-btn completed"; evaluateWorkflowSystem();
+                }
+            }
+        });
+
+        // --- HIDDEN SECURE DOWNLOADS ---
+        function executeSecureProxyDownload(targetSource) {
+            const downloaderBridge = document.getElementById('secureDownloaderFrame');
+            if (downloaderBridge) { downloaderBridge.src = targetSource; } 
+            else { window.location.href = targetSource; }
+        }
+
+        function evaluateWorkflowSystem() {
+            let scoreTracker = 0;
+            if (step1Completed) scoreTracker++;
+            if (step2Completed) scoreTracker++;
+            if (activeSharesTracker === 5) scoreTracker++;
+
+            stepsCounterTxt.innerText = scoreTracker;
+            progressBar.style.width = `${(scoreTracker / 3) * 100}%`;
+
+            if (scoreTracker === 3) {
+                lockStatus.innerText = "🔓 UNLOCKED SUCCESSFUL";
+                lockStatus.style.color = "#00ffaa";
+
+                downloadGridContainer.innerHTML = `
+                    <button class="final-btn download-max" id="secureTriggerPayload">📥 DOWNLOAD AIM DRIVE ZIP</button>
+                    <button class="final-btn download-video" id="secureTriggerVideo">🎬 DOWNLOAD SETUP VIDEO</button>
+                    <button class="final-btn download-key" id="secureTriggerKey">🔑 VIEW FILE PASSWORD</button>
+                `;
+
+                document.getElementById('secureTriggerPayload').addEventListener('click', () => executeSecureProxyDownload(FILE_SOURCE_ASSET));
+                document.getElementById('secureTriggerVideo').addEventListener('click', () => executeSecureProxyDownload(VIDEO_SOURCE_ASSET));
+                document.getElementById('secureTriggerKey').addEventListener('click', () => {
+                    alert("🔑 FILE PASSWORD IS: 11\n\nUse this password to extract the zip file.");
+                });
+            }
+        }
+    </script>
+</body>
+</html>
