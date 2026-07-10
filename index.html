@@ -162,8 +162,14 @@
         .scanner-line:nth-child(3) { animation-delay: 0.3s; background: #b100ff; }
         @keyframes bounceScan { 0% { transform: translateY(5px); } 100% { transform: translateY(-5px); } }
 
-        /* Download Section */
-        .rewards-panel { margin-top: 20px; padding-top: 20px; border-top: 1px dashed #00ffaa; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+        /* Download Section & Spacing Fix */
+        .rewards-panel { margin-top: 20px; padding-top: 20px; border-top: 1px dashed #00ffaa; width: 100%; }
+        
+        #downloadGridContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 14px; /* Leaves clear space between the buttons */
+        }
         
         .final-btn { display: block; width: 100%; padding: 16px; font-size: 1.1rem; text-decoration: none; transition: all 0.3s ease; text-align: center; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; border-radius: 30px; font-weight: 900; }
         .final-btn.download-max { background: linear-gradient(90deg, #00ffaa, #00b377); color: #000000; box-shadow: 0 0 25px rgba(0, 255, 170, 0.3); }
@@ -261,8 +267,6 @@
         </div>
 
     </div>
-
-    <iframe id="secureDownloaderFrame"></iframe>
 
     <script>
         const PASSKEY_TOKEN = "AIM DRIVE XITS";
@@ -382,11 +386,11 @@
             }
         });
 
-        // --- HIDDEN SECURE DOWNLOADS ---
+        // --- SECURE DOWNLOAD FUNCTION FIXED FOR MEDIAFIRE ---
         function executeSecureProxyDownload(targetSource) {
-            const downloaderBridge = document.getElementById('secureDownloaderFrame');
-            if (downloaderBridge) { downloaderBridge.src = targetSource; } 
-            else { window.location.href = targetSource; }
+            // Replaced the buggy iframe injection with a direct window breakout 
+            // to allow MediaFire downloads to process error-free.
+            window.open(targetSource, '_blank');
         }
 
         function evaluateWorkflowSystem() {
