@@ -3,422 +3,1924 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIM DRIVE XIT</title>
+    <title>FULL RED AIM FIX SETTINGS - FEARLESS XITS</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Share+Tech+Mono&display=swap');
+        :root {
+            --bg: #030509;
+            --card-bg: rgba(15, 20, 32, 0.95);
+            --accent: #ff003c;
+            --accent-glow: rgba(255, 0, 60, 0.6);
+            --neon-cyan: #00f0ff;
+            --gold: #ffb703;
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --border: rgba(255, 0, 60, 0.3);
+            --border-muted: #1e293b;
+            --whatsapp-green: #25D366;
+        }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Share Tech Mono', monospace;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: #05020a;
-            color: #ffffff;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 0, 60, 0.2), transparent 70%),
+                radial-gradient(circle at 100% 100%, rgba(0, 240, 255, 0.1), transparent 50%);
+            color: var(--text-main);
+            padding: 20px 12px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 20px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Matrix Code Stream Canvas Background */
-        #bgCanvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.15;
-        }
-
-        /* Modern Rounded Panel Card */
-        .card {
-            background: rgba(11, 6, 20, 0.9);
-            border: 2px solid rgba(177, 0, 255, 0.35);
-            border-radius: 24px;
-            padding: 40px 30px;
+        .container {
+            max-width: 600px;
             width: 100%;
-            max-width: 440px;
-            text-align: center;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), 0 0 40px rgba(177, 0, 255, 0.2);
-            backdrop-filter: blur(25px);
+        }
+
+        .lang-selector-wrapper {
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .lang-dropdown-container {
             position: relative;
+            width: 100%;
+            max-width: 240px;
         }
 
-        .hidden { display: none !important; opacity: 0; }
-
-        /* Typography & Structure elements */
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.3rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 8px;
-            background: linear-gradient(180deg, #ffffff 30%, #e2c2ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .lang-select-btn {
+            width: 100%;
+            background: rgba(15, 20, 32, 0.9);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: all 0.25s ease;
         }
 
-        h1 span {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            background: linear-gradient(90deg, #ff0055, #b100ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(177, 0, 255, 0.6);
+        .lang-select-btn:active {
+            transform: scale(0.97);
         }
 
-        .status-node {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            color: #00ffaa;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            display: inline-flex;
+        .lang-select-btn span {
+            display: flex;
             align-items: center;
             gap: 8px;
         }
-        .status-node span {
-            width: 8px; height: 8px;
-            background: #00ffaa;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ffaa;
-            animation: pulseDot 0.8s infinite alternate;
-        }
-        @keyframes pulseDot { 0% { transform: scale(0.7); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }
 
-        /* Celebration Banner Layout */
-        .milestone-banner {
-            background: linear-gradient(90deg, rgba(255, 0, 85, 0.1), rgba(177, 0, 255, 0.1));
-            border-left: 4px solid #ff0055;
-            border-right: 4px solid #b100ff;
+        header {
+            text-align: center;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 8px;
+            animation: pulseGlow 2s infinite alternate ease-in-out;
+        }
+
+        .logo-img {
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            pointer-events: none;
+            filter: drop-shadow(0 0 12px var(--accent-glow));
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 8px var(--accent-glow)); }
+            100% { transform: scale(1.06); filter: drop-shadow(0 0 22px var(--accent)); }
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--accent-glow), 0 0 30px var(--accent);
+            line-height: 1.2;
+        }
+
+        header h1 span {
+            color: var(--accent);
+        }
+
+        .creator-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(90deg, #ff003c, #80001f);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px var(--accent-glow);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: cardAppear 0.5s ease-out forwards;
+        }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scanner-line {
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: scan 3s infinite linear;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .verify-box {
+            text-align: center;
+        }
+
+        .verify-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .verify-desc {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .channel-btn {
+            width: 100%;
+            background: rgba(37, 211, 102, 0.12);
+            border: 1px solid var(--whatsapp-green);
+            color: #fff;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+
+        .channel-btn:active {
+            transform: scale(0.97);
+        }
+
+        .channel-btn.done {
+            background: rgba(37, 211, 102, 0.3);
+            border-color: #00e676;
+            color: #00e676;
+        }
+
+        .verify-access-btn {
+            width: 100%;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #00f0ff 0%, #0080ff 100%);
+            color: #000;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .verify-access-btn:disabled {
+            background: #1e293b;
+            color: #64748b;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        label svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--accent);
+        }
+
+        .os-switcher {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .os-btn {
+            flex: 1;
+            background: #0b0f19;
+            border: 1px solid var(--border-muted);
+            color: var(--text-sub);
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            text-align: center;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .os-btn:active {
+            transform: scale(0.96);
+        }
+
+        .os-btn.active {
+            background: rgba(255, 0, 60, 0.15);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: #090d16;
+            border: 1px solid var(--border-muted);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .live-status {
+            display: none;
+            font-size: 11px;
+            margin-top: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-short { color: var(--accent); }
+        .status-ok { color: #00e676; }
+
+        .custom-select-trigger {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: #090d16;
+            border: 1px solid var(--border-muted);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+            transition: transform 0.1s ease;
+        }
+
+        .custom-select-trigger:active {
+            transform: scale(0.98);
+        }
+
+        .share-box {
+            background: rgba(37, 211, 102, 0.08);
+            border: 1px solid var(--whatsapp-green);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .share-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--whatsapp-green);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .share-desc {
+            font-size: 11px;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .share-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .share-btn:active {
+            transform: scale(0.97);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: #090d16;
+            border-radius: 4px;
+            margin-top: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-muted);
+        }
+
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--whatsapp-green);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--whatsapp-green);
+        }
+
+        button.gen-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff003c 0%, #a00026 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        button.gen-btn:disabled {
+            background: #334155;
+            color: #94a3b8;
+            box-shadow: none;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        button.gen-btn:not(:disabled):active {
+            transform: scale(0.97);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: #0f1420;
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 0 30px var(--accent-glow);
+            padding: 20px;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-muted);
+        }
+
+        .modal-title {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 0, 60, 0.2);
+            border: 1px solid var(--accent);
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:active {
+            transform: scale(0.9);
+            background: var(--accent);
+        }
+
+        .modal-option {
+            padding: 14px;
+            border-bottom: 1px solid var(--border-muted);
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .modal-option:active {
+            background: rgba(255, 0, 60, 0.3);
+        }
+
+        .error-msg {
+            display: none;
+            background: rgba(255, 0, 60, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .device-info-badge {
+            background: rgba(255, 183, 3, 0.12);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .stat-box {
+            background: #080c14;
+            padding: 14px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            position: relative;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .stat-val {
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            margin-top: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .stat-val span.unit {
+            font-size: 10px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .copy-sensi-btn {
+            width: 100%;
+            margin-top: 14px;
+            background: rgba(0, 240, 255, 0.12);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .copy-sensi-btn:active {
+            transform: scale(0.97);
+            background: var(--neon-cyan);
+            color: #000;
+        }
+
+        .hud-preview {
+            background: #080c14;
+            border: 1px dashed var(--border);
             border-radius: 12px;
             padding: 15px;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #f1eaff;
-        }
-        .milestone-banner strong {
-            color: #b100ff;
-            text-shadow: 0 0 10px rgba(177, 0, 255, 0.5);
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
-        /* Input Elements */
-        .label-text { color: #b100ff; font-size: 0.85rem; text-align: left; margin-bottom: 6px; letter-spacing: 2px; }
-        .input-wrapper { position: relative; margin-bottom: 25px; }
-        input {
-            width: 100%; background: #040208; border: 1px solid #2d184c; padding: 16px 16px 16px 42px;
-            color: #fff; font-size: 1.1rem; outline: none; letter-spacing: 2px; transition: all 0.3s; border-radius: 30px;
+        .hud-title {
+            font-size: 12px;
+            color: var(--neon-cyan);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
-        input:focus { border-color: #ff0055; box-shadow: 0 0 15px rgba(255,0,85,0.2); }
-        input:disabled { opacity: 0.2; cursor: not-allowed; }
-        .input-wrapper::before { content: '>'; position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #ff0055; font-weight: bold; }
 
-        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; }
-        .nav-btn {
-            background: #080410; border: 1px solid #23163a; color: #9c8fb2; padding: 14px; font-size: 0.95rem;
-            text-decoration: none; text-transform: uppercase; text-align: center; transition: all 0.2s; border-radius: 30px;
+        @keyframes dragArrow {
+            0% { transform: translateY(0); opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-15px); opacity: 0; }
         }
-        .nav-btn:hover { background: #130a24; color: #fff; border-color: #b100ff; }
 
-        /* General Buttons */
-        .action-link-btn, .submit-btn, .task-btn {
-            display: block; width: 100%; padding: 16px; font-size: 1.05rem; text-transform: uppercase; border-radius: 30px; text-decoration: none; text-align: center; transition: all 0.3s ease;
+        .animated-arrow {
+            animation: dragArrow 1.2s infinite ease-in-out;
         }
-        .action-link-btn { background: #110722; border: 1px solid #b100ff; color: #ffffff; margin-bottom: 25px; letter-spacing: 1px; }
-        .action-link-btn:hover { background: #b100ff; color: #000; box-shadow: 0 0 25px rgba(177, 0, 255, 0.4); }
 
-        .submit-btn { background: #0f0b18; border: 1px solid #211735; color: #494158; cursor: not-allowed; letter-spacing: 1.5px; }
-        .submit-btn.active { background: linear-gradient(90deg, #ff0055, #b100ff); color: #ffffff; cursor: pointer; box-shadow: 0 4px 15px rgba(177,0,255,0.3); border: none; }
-        .submit-btn.active:hover { filter: brightness(1.2); }
-
-        /* Task Verification Rows */
-        .task-btn { display: flex; justify-content: space-between; align-items: center; background: #090512; border: 1px solid #23163a; color: #a39bb0; margin-bottom: 12px; cursor: pointer; padding: 16px 22px; }
-        .task-btn.active { border-color: #ff0055; color: #fff; }
-        .task-btn.completed { border-color: #00ffaa; background: rgba(0, 255, 170, 0.03); color: #00ffaa; }
-        .task-btn:disabled, .task-btn.locked { opacity: 0.25; cursor: not-allowed; border-color: #150e22; }
-        .counter-badge { background: #ff0055; padding: 2px 10px; color: #fff; font-size: 0.85rem; border-radius: 20px; }
-        .task-btn.completed .counter-badge { background: #00ffaa; color: #000; }
-
-        .progress-box { margin: 25px 0; font-size: 0.9rem; color: #8e859e; text-align: left; }
-        .bar-bg { width: 100%; background: #050309; height: 8px; margin-top: 8px; border: 1px solid #1f1433; border-radius: 10px; overflow: hidden; }
-        .bar-fill { width: 0%; height: 100%; background: #00ffaa; transition: width 0.4s ease; border-radius: 10px; }
-
-        /* Loading Dots Animation */
-        .scan-loader-wrap { display: none; justify-content: center; align-items: center; margin: 20px 0; gap: 8px; }
-        .scanner-line { width: 6px; height: 6px; background: #b100ff; border-radius: 50%; animation: bounceScan 0.6s ease-in-out infinite alternate; }
-        .scanner-line:nth-child(2) { animation-delay: 0.15s; background: #ff0055; }
-        .scanner-line:nth-child(3) { animation-delay: 0.3s; background: #b100ff; }
-        @keyframes bounceScan { 0% { transform: translateY(5px); } 100% { transform: translateY(-5px); } }
-
-        /* Download Section & Spacing Fix */
-        .rewards-panel { margin-top: 20px; padding-top: 20px; border-top: 1px dashed #00ffaa; width: 100%; }
-        
-        #downloadGridContainer {
-            display: flex;
-            flex-direction: column;
-            gap: 14px; /* Leaves clear space between the buttons */
+        ol {
+            padding-left: 20px;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.6;
         }
-        
-        .final-btn { display: block; width: 100%; padding: 16px; font-size: 1.1rem; text-decoration: none; transition: all 0.3s ease; text-align: center; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; border-radius: 30px; font-weight: 900; }
-        .final-btn.download-max { background: linear-gradient(90deg, #00ffaa, #00b377); color: #000000; box-shadow: 0 0 25px rgba(0, 255, 170, 0.3); }
-        .final-btn.download-max:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0, 255, 170, 0.6); }
-        .final-btn.download-video { background: linear-gradient(90deg, #00bfff, #007bb3); color: #ffffff; box-shadow: 0 0 25px rgba(0, 191, 255, 0.3); }
-        .final-btn.download-video:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0, 191, 255, 0.6); }
-        .final-btn.download-key { background: linear-gradient(90deg, #ffb700, #cc9200); color: #000000; box-shadow: 0 0 25px rgba(255, 183, 0, 0.3); }
-        .final-btn.download-key:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(255, 183, 0, 0.6); }
-        .final-btn.locked { background: #07040d; color: #3e3848; border: 1px solid #1a1226; pointer-events: none; font-weight: normal; }
 
-        .contact-mod { margin-top: 25px; border-top: 1px solid #1a112c; padding-top: 15px; }
-        .contact-btn { color: #ff0055; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; font-weight: bold; }
-        .contact-btn:hover { text-shadow: 0 0 8px rgba(255,0,85,0.6); }
+        li { margin-bottom: 10px; }
+        li strong { color: #fff; }
+        code {
+            background: rgba(255,0,60,0.2);
+            color: #ff4d73;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-    <canvas id="bgCanvas"></canvas>
-
-    <div class="card" id="mainCardFrame">
-        
-        <!-- PHASE 1: KEY GATEWAY -->
-        <div id="loginSection">
-            <h1>AIM DRIVE <br><span>XIT FILE</span></h1>
-            <div class="status-node"><span></span>VERIFICATION HUB</div>
-
-            <div class="milestone-banner">
-                🎉 <strong>CONGRATS ON 4K FOLLOWERS!</strong> 🎉<br>
-                Complete the requirements below to unlock your downloads.
-            </div>
-
-            <a href="https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E" class="action-link-btn" id="loginJoinBtn" target="_blank">
-                JOIN CHANNEL TO ENABLE INPUT
-            </a>
-
-            <div class="label-text">ENTER FILE KEY</div>
-            <div class="input-wrapper">
-                <input type="text" id="keyInput" placeholder="Join channel first..." disabled autocomplete="off">
-            </div>
-
-            <div class="grid-layout">
-                <a href="https://whatsapp.com/channel/0029VbD11EtAYlUQxZMuK045" target="_blank" class="nav-btn">GET KEY</a>
-                <a href="https://whatsapp.com/channel/0029VbD11EtAYlUQxZMuK045" target="_blank" class="nav-btn">BACKUP LINK</a>
-            </div>
-
-            <button id="submitKeyBtn" class="submit-btn" disabled>VERIFY KEY</button>
-
-            <div class="scan-loader-wrap" id="portalLoader">
-                <div class="scanner-line"></div>
-                <div class="scanner-line"></div>
-                <div class="scanner-line"></div>
+<div class="container" id="mainContainer">
+    <div class="lang-selector-wrapper">
+        <div class="lang-dropdown-container">
+            <div class="lang-select-btn" onclick="openLangModal()">
+                <span id="currentLangLabel">🌐 Select Language</span>
+                <span style="color:var(--accent); font-size:10px;">▼</span>
             </div>
         </div>
-
-        <!-- PHASE 2: TASKS AND SHARING -->
-        <div id="verificationSection" class="hidden">
-            <h1>VERIFICATION</h1>
-            <p style="font-size: 0.95rem; color: #8a7f99; margin-bottom: 20px;">Complete the actions below to open your files.</p>
-            
-            <div id="lockStatus" style="color:#ff0055; font-family:'Orbitron',sans-serif; font-size:0.85rem; margin-bottom:20px; letter-spacing:1px;">
-                🔒 STATUS: LOCKED
-            </div>
-
-            <button class="task-btn active" id="vFollowBtn">
-                <span>📡 1. Follow & Turn On Notifications</span>
-                <span id="fIcon">👉</span>
-            </button>
-
-            <button class="task-btn locked" id="vReactBtn" disabled>
-                <span>🔥 2. React to Channel Post</span>
-                <span id="rIcon">🔒</span>
-            </button>
-
-            <button class="task-btn locked" id="vShareBtn" disabled>
-                <span>🔗 3. Share to 5 WhatsApp Groups</span>
-                <span class="counter-badge" id="shareCounter">0 / 5</span>
-            </button>
-
-            <div class="progress-box">
-                Tasks Done: <span id="stepsCounterTxt" style="color:#fff; font-weight:bold;">0</span> / 3
-                <div class="bar-bg"><div class="bar-fill" id="progressBar"></div></div>
-            </div>
-
-            <div class="rewards-panel">
-                <div id="downloadGridContainer">
-                    <button class="final-btn locked" id="fFilePlaceholder">🔒 DOWNLOADS LOCKED</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="contact-mod">
-            <a href="https://wa.me/2349137895828?text=Hello%20Fearless,%20I%20need%20help%20with%20the%20Aim%20Drive%20Xit!" target="_blank" class="contact-btn">
-                CONTACT MOD
-            </a>
-        </div>
-
     </div>
 
-    <script>
-        const PASSKEY_TOKEN = "AIM DRIVE XITS";
-        const AD_CHANNEL_1  = "https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E";
-        const AD_REACT_POST = "https://whatsapp.com/channel/0029VbD11EtAYlUQxZMuK045/100";
+    <header>
+        <div class="logo-container">
+            <img class="logo-img" src="https://cdn.phototourl.com/member/2026-09-14-030cd2cc-0594-42eb-bfe8-fd73a70811ca.jpg" alt="Aim Profile Image">
+            <svg class="logo-svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#ff003c" stroke-width="4" stroke-dasharray="10 5" />
+                <circle cx="50" cy="50" r="32" fill="none" stroke="#00f0ff" stroke-width="2" />
+                <line x1="50" y1="2" x2="50" y2="22" stroke="#ff003c" stroke-width="4" />
+                <line x1="50" y1="78" x2="50" y2="98" stroke="#ff003c" stroke-width="4" />
+                <line x1="2" y1="50" x2="22" y2="50" stroke="#ff003c" stroke-width="4" />
+                <line x1="78" y1="50" x2="98" y2="50" stroke="#ff003c" stroke-width="4" />
+            </svg>
+        </div>
+        <h1 id="hdrTitle">FULL RED <span>AIM FIX SETTINGS</span></h1>
+        <div class="creator-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            BY FEARLESS XITS
+        </div>
+    </header>
+
+    <!-- STEP 1: CHANNEL FOLLOW VERIFICATION -->
+    <div class="card" id="channelLockCard">
+        <div class="scanner-line"></div>
+        <div class="verify-box">
+            <div class="verify-title" id="lockTitle">
+                🔒 CHANNEL VERIFICATION REQUIRED
+            </div>
+            <div class="verify-desc" id="lockDesc">
+                Follow both WhatsApp Channels below to unlock access to the Aim Fix Generator Hub.
+            </div>
+
+            <button class="channel-btn" id="btnChan1" onclick="openChannel(1)">
+                <span id="btnChan1Txt">1. Follow Primary Channel</span>
+                <span id="chan1Status">FOLLOW ➔</span>
+            </button>
+
+            <button class="channel-btn" id="btnChan2" onclick="openChannel(2)">
+                <span id="btnChan2Txt">2. Follow Secondary Channel</span>
+                <span id="chan2Status">FOLLOW ➔</span>
+            </button>
+
+            <button class="verify-access-btn" id="btnUnlockHub" onclick="unlockHub()" disabled>
+                🔒 UNLOCK GENERATOR HUB
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN FORM HUB -->
+    <div class="card" id="mainHubCard" style="display: none;">
+        <div class="scanner-line"></div>
+        <div class="form-group">
+            <label id="lblPlatform">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/></svg> <span id="lblPlatformTxt">Select Device Platform</span>
+            </label>
+            <div class="os-switcher">
+                <div id="btnAndroid" class="os-btn active" onclick="setOS('android')">🤖 ANDROID</div>
+                <div id="btnIphone" class="os-btn" onclick="setOS('iphone')">🍎 iPHONE</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblDeviceName">
+                <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg> <span id="lblDeviceNameTxt">Device Model Name</span>
+            </label>
+            <input type="text" id="deviceName" placeholder="e.g. Tecno Spark 7, iPhone 17 Pro, iPhone 18..." autocomplete="off" oninput="checkDeviceInput()">
+            <div id="liveStatus" class="live-status"></div>
+        </div>
+
+        <div class="form-group">
+            <label id="specLabel">
+                <svg viewBox="0 0 24 24"><path d="M2 3h20v18H2z"/></svg> <span id="specLabelTxt">SELECT DEVICE RAM</span>
+            </label>
+            <div class="custom-select-trigger" id="specTrigger" onclick="openSpecModal()">
+                <span id="specSelectedText">4 GB RAM</span>
+                <span style="color:var(--accent); font-size:10px;">▼</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblYear">
+                <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg> <span id="lblYearTxt">Purchase / Release Year</span>
+            </label>
+            <input type="number" id="year" placeholder="e.g. 2021, 2026..." min="2012" max="2027" oninput="saveFormState()">
+        </div>
+
+        <div class="share-box">
+            <div class="share-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.76.459 3.474 1.33 4.988L2 22l5.132-1.347c1.463.799 3.11 1.22 4.873 1.221h.005c5.505 0 9.988-4.479 9.989-9.985 0-2.667-1.037-5.174-2.925-7.062A9.923 9.923 0 0012.012 2z"/></svg>
+                <span id="shareTitleTxt">Share to Unlock Settings</span> (<span id="shareCountText">0/2</span>)
+            </div>
+            <div class="share-desc" id="shareDescText">Share this tool to 2 WhatsApp groups or chats to generate your Full Red aim settings.</div>
+            <button class="share-btn" onclick="shareToWhatsApp()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                <span id="shareBtnTxt">Share on WhatsApp</span>
+            </button>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="shareProgress"></div>
+            </div>
+        </div>
+
+        <button class="gen-btn" id="btnGen" onclick="generateSensitivity()" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <span id="btnGenTxt">GET FULL RED SETTINGS</span>
+        </button>
+    </div>
+
+    <div id="errorBox" class="error-msg">
+        ❌ Please enter a valid device model and release year!
+    </div>
+
+    <!-- RESULTS -->
+    <div id="resultBox" class="results">
+        <div class="card">
+            <div class="scanner-line"></div>
+            <div id="deviceBadge" class="device-info-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                TARGET LOCK: UNKNOWN DEVICE
+            </div>
+            
+            <h3 id="headSensiTitle" style="margin-top:0; color:var(--accent); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; display:flex; align-items:center; gap:6px;">
+                🎯 In-Game Sensitivity (0 - 200 Scale)
+            </h3>
+            
+            <div class="grid-2" style="margin-top: 12px; margin-bottom: 15px;">
+                <div class="stat-box"><div class="stat-label">General</div><div class="stat-val" id="resGen">185 <span class="unit">RED LOCK</span></div></div>
+                <div class="stat-box"><div class="stat-label">Red Dot</div><div class="stat-val" id="resRed">180 <span class="unit">BOOSTER</span></div></div>
+                <div class="stat-box"><div class="stat-label">2x Scope</div><div class="stat-val" id="res2x">170 <span class="unit">STABLE</span></div></div>
+                <div class="stat-box"><div class="stat-label">4x Scope</div><div class="stat-val" id="res4x">155 <span class="unit">NO RECOIL</span></div></div>
+                <div class="stat-box"><div class="stat-label">Sniper Scope</div><div class="stat-val" id="resSniper">85 <span class="unit">ONE-TAP</span></div></div>
+                <div class="stat-box"><div class="stat-label">Free Look</div><div class="stat-val" id="resFree">130 <span class="unit">SMOOTH</span></div></div>
+            </div>
+
+            <button class="copy-sensi-btn" onclick="copySensitivityToClipboard()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                <span id="copyBtnTxt">Copy Sensitivity Settings</span>
+            </button>
+
+            <div class="hud-preview">
+                <div class="hud-title" id="hudTitle">🔥 Fire Button Drag Technique</div>
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <rect x="5" y="5" width="90" height="90" rx="10" fill="#090d16" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="50" y1="5" x2="50" y2="95" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 2"/>
+                    <line x1="5" y1="50" x2="95" y2="50" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 2"/>
+                    
+                    <g class="animated-arrow">
+                        <path d="M68 52 L68 32" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+                        <polyline points="63,37 68,30 73,37" fill="none" stroke="#00f0ff" stroke-width="3"/>
+                    </g>
+                    
+                    <circle cx="68" cy="70" r="16" fill="rgba(255, 0, 60, 0.25)" stroke="#ff003c" stroke-width="2"/>
+                    <circle cx="68" cy="70" r="4" fill="#ff003c"/>
+                    
+                    <text x="50" y="20" fill="#00f0ff" font-size="6" font-weight="bold" text-anchor="middle" id="svgSwipeTxt">SWIPE UP TO HEAD</text>
+                </svg>
+                <div style="font-size: 11px; color: var(--gold); font-weight: 700; margin-top: 6px;" id="fireBtnAdvice">
+                    Recommended Size: 48% | Lower Right Placement
+                </div>
+            </div>
+
+            <h3 style="color:var(--gold); font-size: 14px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;" id="systemTweaksTitle">⚡ System Tweaks</h3>
+            <div id="tweaksContainer"></div>
+        </div>
+    </div>
+</div>
+
+<!-- OPTION MODAL -->
+<div id="optionModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-card">
+        <div class="modal-header">
+            <div class="modal-title" id="modalTitle">Select Option</div>
+            <button class="modal-close-btn" onclick="closeModalDirect()" title="Close">✕</button>
+        </div>
+        <div id="modalOptionsList"></div>
+    </div>
+</div>
+
+<script>
+    let currentOS = "android";
+    let selectedSpecValue = "4 GB RAM";
+    let currentLang = "en";
+    let shareCount = 0;
+    let generatedSensValues = {};
+
+    let followedChan1 = false;
+    let followedChan2 = false;
+
+    const channel1Url = "https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E";
+    const channel2Url = "https://whatsapp.com/channel/0029Vb8dD7a5q08gPKk13w2R";
+
+    const shareText = `*BEST AIM FIX SETTINGS + SENSI (IOS/ANDROID)🔥💀*
+Tested and working for me ❤️☑️
+
+- AIM FIX SETTINGS LINK: https://aimfixsettings.netlify.app
+
+- https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E
+
+Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Files 🗿`;
+
+    const langList = [
+        { code: 'en', label: '🇬🇧 English' },
+        { code: 'id', label: '🇮🇩 Bahasa Indonesia' },
+        { code: 'pcm', label: '🇳🇬 Pidgin' },
+        { code: 'es', label: '🇪🇸 Español (Spanish)' },
+        { code: 'pt', label: '🇧🇷 Português (Portuguese)' },
+        { code: 'vi', label: '🇻🇳 Tiếng Việt (Vietnamese)' },
+        { code: 'ms', label: '🇲🇾 Bahasa Melayu (Malay)' },
+        { code: 'ru', label: '🇷🇺 Русский (Russian)' },
+        { code: 'ar', label: '🇸🇦 العربية (Arabic)' },
+        { code: 'tr', label: '🇹🇷 Türkçe (Turkish)' },
+        { code: 'th', label: '🇹🇭 ภาษาไทย (Thai)' },
+        { code: 'zh-TW', label: '🇭🇰 繁體中文 (Traditional Chinese)' },
+        { code: 'zh-CN', label: '🇨🇳 简体中文 (Simplified Chinese)' },
+        { code: 'fr', label: '🇫🇷 Français (French)' },
+        { code: 'de', label: '🇩🇪 Deutsch (German)' },
+        { code: 'hi-bn', label: '🇮🇳 Hindi / বাংলা (Bengali)' },
+        { code: 'yo', label: '🇳🇬 Yorùbá' },
+        { code: 'ha', label: '🇳🇬 Hausa' },
+        { code: 'ig', label: '🇳🇬 Igbo' }
+    ];
+
+    const translations = {
+        en: {
+            lockTitle: "🔒 CHANNEL VERIFICATION REQUIRED",
+            lockDesc: "Follow both WhatsApp Channels below to unlock access to the Aim Fix Generator Hub.",
+            btnChan1: "1. Follow Primary Channel",
+            btnChan2: "2. Follow Secondary Channel",
+            unlockBtnLocked: "🔒 UNLOCK GENERATOR HUB",
+            unlockBtnUnlocked: "🔓 ACCESS GENERATOR HUB",
+            followTxt: "FOLLOW ➔",
+            verifiedTxt: "✓ VERIFIED",
+            verifyingTxt: "VERIFYING",
+            platform: "Select Device Platform",
+            model: "Device Model Name",
+            ramLabel: "SELECT DEVICE RAM",
+            iphoneLabel: "SELECT IPHONE SERIES",
+            year: "Purchase / Release Year",
+            shareTitle: "Share to Unlock Settings",
+            shareDesc: "Share this tool to 2 WhatsApp groups or chats to generate your Full Red aim settings.",
+            shareBtn: "Share on WhatsApp",
+            btn: "GET FULL RED SETTINGS",
+            headTitle: "🎯 In-Game Sensitivity (0 - 200 Scale)",
+            hudTitle: "🔥 Fire Button Drag Technique",
+            tweaksTitleAndroid: "📱 Android Aim-Lock System Tweaks",
+            tweaksTitleIphone: "🍎 iPhone Custom System Tweaks",
+            error: "❌ Please enter a valid device model and release year!",
+            swipe: "SWIPE UP TO HEAD",
+            copyBtn: "Copy Sensitivity Settings",
+            copiedTxt: "✓ Copied to Clipboard!"
+        },
+        id: {
+            lockTitle: "🔒 VERIFIKASI SALURAN DIPERLUKAN",
+            lockDesc: "Ikuti kedua Saluran WhatsApp di bawah ini untuk membuka akses ke Aim Fix Generator Hub.",
+            btnChan1: "1. Ikuti Saluran Utama",
+            btnChan2: "2. Ikuti Saluran Kedua",
+            unlockBtnLocked: "🔒 BUKA GENERATOR HUB",
+            unlockBtnUnlocked: "🔓 AKSES GENERATOR HUB",
+            followTxt: "IKUTI ➔",
+            verifiedTxt: "✓ TERVERIFIKASI",
+            verifyingTxt: "MEMERIKSA",
+            platform: "Pilih Platform Perangkat",
+            model: "Nama Model Perangkat",
+            ramLabel: "PILIH RAM PERANGKAT",
+            iphoneLabel: "PILIH SERI IPHONE",
+            year: "Tahun Pembelian / Rilis",
+            shareTitle: "Bagikan untuk Membuka Pengaturan",
+            shareDesc: "Bagikan alat ini ke 2 grup atau chat WhatsApp untuk mendapatkan pengaturan aim Full Red.",
+            shareBtn: "Bagikan ke WhatsApp",
+            btn: "DAPATKAN PENGATURAN FULL RED",
+            headTitle: "🎯 Sensitivitas Dalam Game (Skala 0 - 200)",
+            hudTitle: "🔥 Teknik Drag Tombol Tembak",
+            tweaksTitleAndroid: "📱 Pengaturan Sistem Aim-Lock Android",
+            tweaksTitleIphone: "🍎 Pengaturan Sistem iPhone Custom",
+            error: "❌ Masukkan model perangkat dan tahun rilis yang valid!",
+            swipe: "USAP KE ATAS KE KEPALA",
+            copyBtn: "Salin Pengaturan Sensitivitas",
+            copiedTxt: "✓ Tersalin ke Papan Klip!"
+        },
+        pcm: {
+            lockTitle: "🔒 YOU MUST FOLLOW THE CHANNELS FIRST",
+            lockDesc: "Follow these two WhatsApp Channels below so you go fit open the Aim Fix Generator Hub.",
+            btnChan1: "1. Follow First Channel",
+            btnChan2: "2. Follow Second Channel",
+            unlockBtnLocked: "🔒 UNLOCK GENERATOR HUB",
+            unlockBtnUnlocked: "🔓 OPEN GENERATOR HUB NOW",
+            followTxt: "FOLLOW AM ➔",
+            verifiedTxt: "✓ E DON SET",
+            verifyingTxt: "DEY CHECK AM",
+            platform: "Select Phone Type",
+            model: "Phone Model Name",
+            ramLabel: "SELECT PHONE RAM",
+            iphoneLabel: "SELECT IPHONE TYPE",
+            year: "Year Wey You Buy Am / Release Year",
+            shareTitle: "Share Am Make You Unlock Settings",
+            shareDesc: "Share this site give 2 WhatsApp groups or chats to get your Full Red aim settings.",
+            shareBtn: "Share Am For WhatsApp",
+            btn: "GET FULL RED SETTINGS",
+            headTitle: "🎯 Game Sensitivity (0 - 200 Scale)",
+            hudTitle: "🔥 How To Drag Fire Button",
+            tweaksTitleAndroid: "📱 Android Aim-Lock Settings Fix",
+            tweaksTitleIphone: "🍎 iPhone Custom Settings Fix",
+            error: "❌ Abeg put correct phone name and release year!",
+            swipe: "DRAG GO UP TO HEAD",
+            copyBtn: "Copy Sensitivity Settings",
+            copiedTxt: "✓ You Don Copy Am!"
+        },
+        es: {
+            lockTitle: "🔒 VERIFICACIÓN DE CANAL REQUERIDA",
+            lockDesc: "Sigue ambos canales de WhatsApp a continuación para desbloquear el generador de sensibilidad.",
+            btnChan1: "1. Seguir Canal Principal",
+            btnChan2: "2. Seguir Canal Secundario",
+            unlockBtnLocked: "🔒 BLOQUEADO",
+            unlockBtnUnlocked: "🔓 ACCEDER AL GENERADOR",
+            followTxt: "SEGUIR ➔",
+            verifiedTxt: "✓ VERIFICADO",
+            verifyingTxt: "VERIFICANDO",
+            platform: "Seleccionar Plataforma",
+            model: "Nombre del Modelo",
+            ramLabel: "SELECCIONAR RAM",
+            iphoneLabel: "SELECCIONAR SERIE IPHONE",
+            year: "Año de Compra / Lanzamiento",
+            shareTitle: "Comparte para Desbloquear",
+            shareDesc: "Comparte esta herramienta en 2 grupos o chats de WhatsApp para obtener la configuración Full Red.",
+            shareBtn: "Compartir en WhatsApp",
+            btn: "OBTENER CONFIGURACIÓN FULL RED",
+            headTitle: "🎯 Sensibilidad del Juego (Escala 0 - 200)",
+            hudTitle: "🔥 Técnica de Arrastre de Botón de Disparo",
+            tweaksTitleAndroid: "📱 Ajustes del Sistema Android Aim-Lock",
+            tweaksTitleIphone: "🍎 Ajustes del Sistema iPhone",
+            error: "❌ ¡Por favor ingresa un modelo válido y año de lanzamiento!",
+            swipe: "DESLIZA HACIA LA CABEZA",
+            copyBtn: "Copiar Sensibilidad",
+            copiedTxt: "✓ ¡Copiado al Portapapeles!"
+        },
+        pt: {
+            lockTitle: "🔒 VERIFICAÇÃO DE CANAL NECESSÁRIA",
+            lockDesc: "Siga ambos os canais do WhatsApp abaixo para desbloquear o gerador de sensibilidade.",
+            btnChan1: "1. Seguir Canal Principal",
+            btnChan2: "2. Seguir Canal Secundário",
+            unlockBtnLocked: "🔒 BLOQUEADO",
+            unlockBtnUnlocked: "🔓 ACESSAR GERADOR",
+            followTxt: "SEGUIR ➔",
+            verifiedTxt: "✓ VERIFICADO",
+            verifyingTxt: "VERIFICANDO",
+            platform: "Selecionar Plataforma",
+            model: "Nome do Modelo",
+            ramLabel: "SELECIONAR RAM",
+            iphoneLabel: "SELECIONAR SÉRIE IPHONE",
+            year: "Ano de Compra / Lançamento",
+            shareTitle: "Compartilhe para Desbloquear",
+            shareDesc: "Compartilhe esta ferramenta em 2 grupos ou conversas do WhatsApp para gerar sua sensibilidade.",
+            shareBtn: "Compartilhar no WhatsApp",
+            btn: "OBTER CONFIGURAÇÃO FULL RED",
+            headTitle: "🎯 Sensibilidade do Jogo (Escala 0 - 200)",
+            hudTitle: "🔥 Técnica de Arraste do Botão de TIRO",
+            tweaksTitleAndroid: "📱 Ajustes do Sistema Android Aim-Lock",
+            tweaksTitleIphone: "🍎 Ajustes Personalizados do iPhone",
+            error: "❌ Por favor, insira um modelo de dispositivo e ano válidos!",
+            swipe: "DESLIZE PARA CIMA NA CABEÇA",
+            copyBtn: "Copiar Sensibilidade",
+            copiedTxt: "✓ Copiado para a Área de Transferência!"
+        },
+        vi: {
+            lockTitle: "🔒 YÊU CẦU XÁC MINH KÊNH",
+            lockDesc: "Theo dõi cả hai Kênh WhatsApp bên dưới để mở khóa công cụ Aim Fix Generator.",
+            btnChan1: "1. Theo Dõi Kênh Chính",
+            btnChan2: "2. Theo Dõi Kênh Phụ",
+            unlockBtnLocked: "🔒 MỞ KHÓA GENERATOR",
+            unlockBtnUnlocked: "🔓 TRUY CẬP GENERATOR",
+            followTxt: "THEO DÕI ➔",
+            verifiedTxt: "✓ ĐÃ XÁC MINH",
+            verifyingTxt: "ĐANG KIỂM TRA",
+            platform: "Chọn Nền Tảng Thiết Bị",
+            model: "Tên Dòng Máy",
+            ramLabel: "CHỌN DUNG LƯỢNG RAM",
+            iphoneLabel: "CHỌN DÒNG IPHONE",
+            year: "Năm Mua / Ra Mắt",
+            shareTitle: "Chia Sẻ Để Mở Khóa",
+            shareDesc: "Chia sẻ công cụ này vào 2 nhóm hoặc cuộc trò chuyện WhatsApp để nhận cài đặt Full Red.",
+            shareBtn: "Chia Sẻ Qua WhatsApp",
+            btn: "NHẬN CÀI ĐẶT FULL RED",
+            headTitle: "🎯 Độ Nhạy Trong Game (Thang 0 - 200)",
+            hudTitle: "🔥 Kỹ Thuật Kéo Nút Bắn",
+            tweaksTitleAndroid: "📱 Tối Ưu Hệ Thống Aim-Lock Android",
+            tweaksTitleIphone: "🍎 Tối Ưu Hệ Thống iPhone Custom",
+            error: "❌ Vui lòng nhập đúng tên máy và năm ra mắt!",
+            swipe: "KÉO THẲNG LÊN ĐẦU",
+            copyBtn: "Sao Chép Cài Đặt Độ Nhạy",
+            copiedTxt: "✓ Đã Sao Chép!"
+        },
+        ms: {
+            lockTitle: "🔒 PENGESAHAN SALURAN DIPERLUKAN",
+            lockDesc: "Ikuti kedua-dua Saluran WhatsApp di bawah untuk membuka akses ke Aim Fix Generator Hub.",
+            btnChan1: "1. Ikuti Saluran Utama",
+            btnChan2: "2. Ikuti Saluran Kedua",
+            unlockBtnLocked: "🔒 BUKA GENERATOR HUB",
+            unlockBtnUnlocked: "🔓 AKSES GENERATOR HUB",
+            followTxt: "IKUTI ➔",
+            verifiedTxt: "✓ DISAHKAN",
+            verifyingTxt: "MENYEMAK",
+            platform: "Pilih Platform Peranti",
+            model: "Nama Model Peranti",
+            ramLabel: "PILIH RAM PERANTI",
+            iphoneLabel: "PILIH SIRI IPHONE",
+            year: "Tahun Pembelian / Keluaran",
+            shareTitle: "Kongsi Untuk Buka Tetapan",
+            shareDesc: "Kongsi alat ini ke 2 kumpulan atau chat WhatsApp untuk mendapatkan tetapan aim Full Red.",
+            shareBtn: "Kongsi di WhatsApp",
+            btn: "DAPATKAN TETAPAN FULL RED",
+            headTitle: "🎯 Kepekatan Dalam Permainan (Skala 0 - 200)",
+            hudTitle: "🔥 Teknik Drag Butang Tembak",
+            tweaksTitleAndroid: "📱 Tetapan Sistem Aim-Lock Android",
+            tweaksTitleIphone: "🍎 Tetapan Sistem iPhone Custom",
+            error: "❌ Sila masukkan model peranti dan tahun keluaran yang sah!",
+            swipe: "TARIK KE ATAS KE KEPALA",
+            copyBtn: "Salin Tetapan Kepekatan",
+            copiedTxt: "✓ Disalin ke Papan Klip!"
+        },
+        ru: {
+            lockTitle: "🔒 ТРЕБУЕТСЯ ПРОВЕРКА КАНАЛА",
+            lockDesc: "Подпишитесь на оба канала WhatsApp ниже, чтобы открыть доступ к Aim Fix Generator Hub.",
+            btnChan1: "1. Подписаться на Главный Канал",
+            btnChan2: "2. Подписаться на Второй Канал",
+            unlockBtnLocked: "🔒 РАЗБЛОКИРОВАТЬ ХАБ",
+            unlockBtnUnlocked: "🔓 ОТКРЫТЬ ГЕНЕРАТОР",
+            followTxt: "ПОДПИСАТЬСЯ ➔",
+            verifiedTxt: "✓ ПРОВЕРЕНО",
+            verifyingTxt: "ПРОВЕРКА",
+            platform: "Выберите Платформу",
+            model: "Модель Устройства",
+            ramLabel: "ВЫБЕРИТЕ RAM УСТРОЙСТВА",
+            iphoneLabel: "ВЫБЕРИТЕ СЕРИЮ IPHONE",
+            year: "Год Покупки / Выпуска",
+            shareTitle: "Поделитесь для Разблокировки",
+            shareDesc: "Поделитесь этим сайтом в 2 группах или чатах WhatsApp, чтобы получить настройки Full Red.",
+            shareBtn: "Поделиться в WhatsApp",
+            btn: "ПОЛУЧИТЬ НАСТРОЙКИ FULL RED",
+            headTitle: "🎯 Чувствительность в Игре (Шкала 0 - 200)",
+            hudTitle: "🔥 Техника Оттяжки Кнопки Огня",
+            tweaksTitleAndroid: "📱 Настройки Системы Aim-Lock Android",
+            tweaksTitleIphone: "🍎 Настройки Системы iPhone Custom",
+            error: "❌ Введите корректную модель и год выпуска!",
+            swipe: "ТЯНИТЕ ВВЕРХ К ГОЛОВЕ",
+            copyBtn: "Скопировать Настройки",
+            copiedTxt: "✓ Скопировано в Буфер!"
+        },
+        ar: {
+            lockTitle: "🔒 التحقق من القناة مطلوب",
+            lockDesc: "تابع كلتا قناتي واتساب أدناه لفتح الوصول إلى مركز إعدادات تصويب الهدف.",
+            btnChan1: "1. متابعة القناة الأساسية",
+            btnChan2: "2. متابعة القناة الثانوية",
+            unlockBtnLocked: "🔒 المولد مغلق",
+            unlockBtnUnlocked: "🔓 فتح مركز المولد",
+            followTxt: "متابعة ➔",
+            verifiedTxt: "✓ تم التحقق",
+            verifyingTxt: "جاري التحقق",
+            platform: "اختر نوع الجهاز",
+            model: "اسم طراز الجهاز",
+            ramLabel: "اختر ذاكرة الرام (RAM)",
+            iphoneLabel: "اختر فئة الآيفون",
+            year: "سنة الشراء / الإصدار",
+            shareTitle: "شارك لفتح الإعدادات",
+            shareDesc: "شارك هذه الأداة في مجموعتين أو محادثتين على واتساب للحصول على الإعدادات.",
+            shareBtn: "مشاركة عبر واتساب",
+            btn: "الحصول على إعدادات AIM FIX",
+            headTitle: "🎯 حساسية اللعبة (مقياس 0 - 200)",
+            hudTitle: "🔥 تقنية سحب زر الإطلاق",
+            tweaksTitleAndroid: "📱 تحسينات نظام أندرويد لتثبيت الهدف",
+            tweaksTitleIphone: "🍎 تحسينات نظام آيفون لتثبيت الهدف",
+            error: "❌ يرجى إدخال اسم طراز جهاز وسنة إصدار صحيحة!",
+            swipe: "اسحب للأعلى نحو الرأس",
+            copyBtn: "نسخ إعدادات الحساسية",
+            copiedTxt: "✓ تم النسخ بنجاح!"
+        },
+        tr: {
+            lockTitle: "🔒 KANAL DOĞRULAMASI GEREKLİ",
+            lockDesc: "Aim Fix Generator Hub erişimini açmak için aşağıdaki iki WhatsApp kanalını takip edin.",
+            btnChan1: "1. Ana Kanalı Takip Et",
+            btnChan2: "2. İkincil Kanalı Takip Et",
+            unlockBtnLocked: "🔒 JENERATÖRÜ AÇ",
+            unlockBtnUnlocked: "🔓 JENERATÖRE GİRİŞ YAP",
+            followTxt: "TAKİP ET ➔",
+            verifiedTxt: "✓ DOĞRULANDI",
+            verifyingTxt: "KONTROL EDİLİYOR",
+            platform: "Cihaz Platformunu Seçin",
+            model: "Cihaz Model Adı",
+            ramLabel: "CİHAZ RAM SEÇİN",
+            iphoneLabel: "IPHONE SERİSİ SEÇİN",
+            year: "Satın Alma / Çıkış Yılı",
+            shareTitle: "Ayarları Açmak İçin Paylaşın",
+            shareDesc: "Full Red hassasiyet ayarlarınızı almak için bu aracı 2 WhatsApp grubunda veya sohbetinde paylaşın.",
+            shareBtn: "WhatsApp'ta Paylaş",
+            btn: "FULL RED AYARLARINI AL",
+            headTitle: "🎯 Oyun İçi Hassasiyet (0 - 200 Ölçeği)",
+            hudTitle: "🔥 Ateş Butonu Kaydırma Tekniği",
+            tweaksTitleAndroid: "📱 Android Aim-Lock Sistem Ayarları",
+            tweaksTitleIphone: "🍎 iPhone Özel Sistem Ayarları",
+            error: "❌ Lütfen geçerli bir cihaz modeli ve çıkış yılı girin!",
+            swipe: "KAFAYA DOĞRU YUKARI KAYDIR",
+            copyBtn: "Hassasiyet Ayarlarını Kopyala",
+            copiedTxt: "✓ Panoya Kopyalandı!"
+        },
+        th: {
+            lockTitle: "🔒 จำเป็นต้องยืนยันตัวตนช่อง",
+            lockDesc: "กดติดตามทั้งสองช่อง WhatsApp ด้านล่างเพื่อปลดล็อก Aim Fix Generator Hub",
+            btnChan1: "1. ติดตามช่องหลัก",
+            btnChan2: "2. ติดตามช่องสำรอง",
+            unlockBtnLocked: "🔒 ปลดล็อก GENERATOR HUB",
+            unlockBtnUnlocked: "🔓 เข้าสู่ GENERATOR HUB",
+            followTxt: "ติดตาม ➔",
+            verifiedTxt: "✓ ยืนยันแล้ว",
+            verifyingTxt: "กำลังตรวจสอบ",
+            platform: "เลือกแพลตฟอร์มอุปกรณ์",
+            model: "ชื่อรุ่นอุปกรณ์",
+            ramLabel: "เลือก RAM ของอุปกรณ์",
+            iphoneLabel: "เลือกซีรีส์ IPHONE",
+            year: "ปีที่ซื้อ / ปีที่เปิดตัว",
+            shareTitle: "แชร์เพื่อปลดล็อกการตั้งค่า",
+            shareDesc: "แชร์เครื่องมือนี้ไปยัง 2 กลุ่มหรือแชท WhatsApp เพื่อรับการตั้งค่าหัวแดง Full Red",
+            shareBtn: "แชร์ไปยัง WhatsApp",
+            btn: "รับการตั้งค่า FULL RED",
+            headTitle: "🎯 ความไวในเกม (สเกล 0 - 200)",
+            hudTitle: "🔥 เทคนิคการลากปุ่มยิง",
+            tweaksTitleAndroid: "📱 การปรับแต่งระบบ Aim-Lock ของ Android",
+            tweaksTitleIphone: "🍎 การปรับแต่งระบบ iPhone Custom",
+            error: "❌ กรุณากรอกชื่อรุ่นอุปกรณ์และปีที่เปิดตัวให้ถูกต้อง!",
+            swipe: "ลากขึ้นไปที่หัว",
+            copyBtn: "คัดลอกการตั้งค่าความไว",
+            copiedTxt: "✓ คัดลอกไปยังคลิปบอร์ดแล้ว!"
+        },
+        'zh-TW': {
+            lockTitle: "🔒 需要頻道驗證",
+            lockDesc: "請關注下方兩個 WhatsApp 頻道以解鎖 Aim Fix Generator Hub。",
+            btnChan1: "1. 關注主頻道",
+            btnChan2: "2. 關注副頻道",
+            unlockBtnLocked: "🔒 解鎖生成器中心",
+            unlockBtnUnlocked: "🔓 進入生成器中心",
+            followTxt: "關注 ➔",
+            verifiedTxt: "✓ 已驗證",
+            verifyingTxt: "驗證中",
+            platform: "選擇設備平台",
+            model: "設備型號名稱",
+            ramLabel: "選擇設備 RAM",
+            iphoneLabel: "選擇 IPHONE 系列",
+            year: "購買 / 發布年份",
+            shareTitle: "分享以解鎖設定",
+            shareDesc: "分享此工具至 2 個 WhatsApp 群組或聊天室以獲取 Full Red 靈敏度設定。",
+            shareBtn: "分享到 WhatsApp",
+            btn: "獲取 FULL RED 設定",
+            headTitle: "🎯 遊戲內靈敏度 (0 - 200 數值)",
+            hudTitle: "🔥 開火鍵上拉拖曳技巧",
+            tweaksTitleAndroid: "📱 Android 鎖頭系統微調",
+            tweaksTitleIphone: "🍎 iPhone 自訂系統微調",
+            error: "❌ 請輸入有效的設備型號與發布年份！",
+            swipe: "向上向上拉至頭部",
+            copyBtn: "複製靈敏度設定",
+            copiedTxt: "✓ 已複製到剪貼簿！"
+        },
+        'zh-CN': {
+            lockTitle: "🔒 需要频道验证",
+            lockDesc: "请关注下方两个 WhatsApp 频道以解锁 Aim Fix Generator Hub。",
+            btnChan1: "1. 关注主频道",
+            btnChan2: "2. 关注副频道",
+            unlockBtnLocked: "🔒 解锁生成器中心",
+            unlockBtnUnlocked: "🔓 进入生成器中心",
+            followTxt: "关注 ➔",
+            verifiedTxt: "✓ 已验证",
+            verifyingTxt: "验证中",
+            platform: "选择设备平台",
+            model: "设备型号名称",
+            ramLabel: "选择设备 RAM",
+            iphoneLabel: "选择 IPHONE 系列",
+            year: "购买 / 发布年份",
+            shareTitle: "分享以解锁设置",
+            shareDesc: "分享此工具至 2 个 WhatsApp 群组或聊天室以获取 Full Red 灵敏度设置。",
+            shareBtn: "分享到 WhatsApp",
+            btn: "获取 FULL RED 设置",
+            headTitle: "🎯 游戏内灵敏度 (0 - 200 数值)",
+            hudTitle: "🔥 开火键上拉拖拽技巧",
+            tweaksTitleAndroid: "📱 Android 锁头系统微调",
+            tweaksTitleIphone: "🍎 iPhone 自定义系统微调",
+            error: "❌ 请输入有效的设备型号与发布年份！",
+            swipe: "向上上拉至头部",
+            copyBtn: "复制灵敏度设置",
+            copiedTxt: "✓ 已复制到剪贴板！"
+        },
+        fr: {
+            lockTitle: "🔒 VÉRIFICATION DE CHAÎNE REQUISE",
+            lockDesc: "Suivez les deux chaînes WhatsApp ci-dessous pour débloquer l'accès au générateur.",
+            btnChan1: "1. Suivre la Chaîne Principale",
+            btnChan2: "2. Suivre la Chaîne Secondaire",
+            unlockBtnLocked: "🔒 REQUIS DE DÉBLOQUER",
+            unlockBtnUnlocked: "🔓 ACCÉDER AU GÉNÉRATEUR",
+            followTxt: "SUIVRE ➔",
+            verifiedTxt: "✓ VÉRIFIÉ",
+            verifyingTxt: "VÉRIFICATION",
+            platform: "Sélectionner la Plateforme",
+            model: "Nom du Modèle",
+            ramLabel: "SÉLECTIONNER LA RAM",
+            iphoneLabel: "SÉLECTIONNER LA SÉRIE IPHONE",
+            year: "Année d'Achat / de Sortie",
+            shareTitle: "Partagez pour Débloquer",
+            shareDesc: "Partagez cet outil dans 2 groupes ou discussions WhatsApp pour générer votre sensibilité.",
+            shareBtn: "Partager sur WhatsApp",
+            btn: "OBTENIR PARAMÈTRES FULL RED",
+            headTitle: "🎯 Sensibilité en Jeu (Échelle 0 - 200)",
+            hudTitle: "🔥 Technique de Glisser du Bouton de Tir",
+            tweaksTitleAndroid: "📱 Ajustements Système Android Aim-Lock",
+            tweaksTitleIphone: "🍎 Ajustements Système iPhone",
+            error: "❌ Veuillez entrer un modèle valide et une année de sortie !",
+            swipe: "GLISSER VERS LA TÊTE",
+            copyBtn: "Copier la Sensibilité",
+            copiedTxt: "✓ Copié dans le Presse-papier !"
+        },
+        de: {
+            lockTitle: "🔒 KANAL-VERIFIZIERUNG ERFORDERLICH",
+            lockDesc: "Folge beiden WhatsApp-Kanälen unten, um den Aim Fix Generator Hub freizuschalten.",
+            btnChan1: "1. Hauptkanal Folgen",
+            btnChan2: "2. Zweitkanal Folgen",
+            unlockBtnLocked: "🔒 HUB FREISCHALTEN",
+            unlockBtnUnlocked: "🔓 ZUM GENERATOR HUB",
+            followTxt: "FOLGEN ➔",
+            verifiedTxt: "✓ VERIFIZIERT",
+            verifyingTxt: "PRÜFUNG",
+            platform: "Geräte-Plattform Wählen",
+            model: "Geräte-Modellname",
+            ramLabel: "GERÄTE-RAM WÄHLEN",
+            iphoneLabel: "IPHONE-SERIE WÄHLEN",
+            year: "Kauf- / Erscheinungsjahr",
+            shareTitle: "Teilen zum Freischalten",
+            shareDesc: "Teile dieses Tool in 2 WhatsApp-Gruppen oder Chats, um deine Full Red Einstellungen zu erhalten.",
+            shareBtn: "Auf WhatsApp Teilen",
+            btn: "FULL RED EINSTELLUNGEN HOLEN",
+            headTitle: "🎯 In-Game Empfindlichkeit (0 - 200 Skala)",
+            hudTitle: "🔥 Feuerknopf-Ziehtechnik",
+            tweaksTitleAndroid: "📱 Android Aim-Lock Systemanpassungen",
+            tweaksTitleIphone: "🍎 iPhone Systemanpassungen",
+            error: "❌ Bitte gib ein gültiges Modell und Erscheinungsjahr ein!",
+            swipe: "ZUM KOPF NACH OBEN ZIEHEN",
+            copyBtn: "Empfindlichkeit Kopieren",
+            copiedTxt: "✓ In die Zwischenablage kopiert!"
+        },
+        'hi-bn': {
+            lockTitle: "🔒 सत्यापन आवश्यक / যাচাইকরণ প্রয়োজন",
+            lockDesc: "एम फिक्स जनरेटर अनलॉका करने के लिए नीचे दिए गए WhatsApp चैनलों को फॉलो करें।",
+            btnChan1: "1. मुख्य चैनल फॉलो करें",
+            btnChan2: "2. द्वितीयक चैनल फॉलो करें",
+            unlockBtnLocked: "🔒 अनलॉक करें",
+            unlockBtnUnlocked: "🔓 जनरेटर हब खोलें",
+            followTxt: "FOLLOW ➔",
+            verifiedTxt: "✓ VERIFIED",
+            verifyingTxt: "CHECKING",
+            platform: "डिवाइस चुनें / डिवाइस নির্বাচন করুন",
+            model: "डिवाइस मॉडल का नाम",
+            ramLabel: "डिवाइस RAM चुनें",
+            iphoneLabel: "आईफोन सीरीज चुनें",
+            year: "खरीद / रिलीज का वर्ष",
+            shareTitle: "सेटिंग्स अनलॉक करने के लिए शेयर करें",
+            shareDesc: "फुल रेड एम सेटिंग्स बनाने के लिए इस टूल को 2 व्हाट्सएप ग्रुप में शेयर करें।",
+            shareBtn: "व्हाट्सएप पर शेयर करें",
+            btn: "FULL RED SETTINGS प्राप्त करें",
+            headTitle: "🎯 इन-गेम संवेदनशीलता (0 - 200)",
+            hudTitle: "🔥 फायर बटन ड्रैग तकनीक",
+            tweaksTitleAndroid: "📱 एंड्रॉइड एम-लॉक सिस्टम ट्विक्स",
+            tweaksTitleIphone: "🍎 आईफोन कस्टम सिस्टम ट्विक्स",
+            error: "❌ सही मॉडल और वर्ष दर्ज करें!",
+            swipe: "सिर की तरफ ऊपर स्वाइप करें",
+            copyBtn: "संवेदनशीलता सेटिंग्स कॉपी करें",
+            copiedTxt: "✓ क्लिपबोर्ड पर कॉपी हो गया!"
+        },
+        yo: {
+            lockTitle: "🔒 A NIKAN TẸLE AWỌN ÍKÀNṢÍ YÌÍ",
+            lockDesc: "Tẹle awọn íkànṣí WhatsApp mejeeji ti o wa nisalẹ lati ṣi Generator Hub ti Aim Fix.",
+            btnChan1: "1. Tẹle Íkànṣí Akọkọ",
+            btnChan2: "2. Tẹle Íkànṣí Ekeji",
+            unlockBtnLocked: "🔒 TI APÁ YÌÍ PADÀ",
+            unlockBtnUnlocked: "🔓 BẸ̀RẸ̀ SÍ LO GENERATOR HUB",
+            followTxt: "TẸ̀LE ➔",
+            verifiedTxt: "✓ TI KO BÁ MỌ́",
+            verifyingTxt: "À SẸ̀ṢẸ̀ YẸ̀ Ẹ̀ WÒ",
+            platform: "Aṣayan Ẹrọ Tabili",
+            model: "Oukọ Apẹẹrẹ Ẹrọ",
+            ramLabel: "AṢAYAN RAM ẸRỌ",
+            iphoneLabel: "AṢAYAN IPHONE",
+            year: "Ọdún Ìra / Ọdún Ìjade",
+            shareTitle: "Apin lati Ṣi Settings",
+            shareDesc: "Apin ohun elo yii si awọn ẹgbẹ WhatsApp meji tabi eyan meji lati gba Full Red aim settings rẹ.",
+            shareBtn: "Apin Lori WhatsApp",
+            btn: "GBA FULL RED SETTINGS",
+            headTitle: "🎯 Sensitifiiti In-Game (0 - 200 Scale)",
+            hudTitle: "🔥 Ilana Arraste Ṣoki Ina",
+            tweaksTitleAndroid: "📱 Awọn Eto Android Aim-Lock System",
+            tweaksTitleIphone: "🍎 Awọn Eto iPhone Custom System",
+            error: "❌ Jọwọ tẹ orukọ ẹrọ ti o tọ ati ọdun jade sii!",
+            swipe: "SÚ TỌ̀ SÍ ORÍ",
+            copyBtn: "Da Awọn Eto Sensitivity Kọ",
+            copiedTxt: "✓ O Ti Da A Kọ!"
+        },
+        ha: {
+            lockTitle: "🔒 ANA BUKATAR TABBATAR DA TASHOSHIN",
+            lockDesc: "Biyi tashoshin WhatsApp guda biyu na ƙasa don buɗe Aim Fix Generator Hub.",
+            btnChan1: "1. Biyi Tashar Farko",
+            btnChan2: "2. Biyi Tashar Taki Biyu",
+            unlockBtnLocked: "🔒 KULLE WURI",
+            unlockBtnUnlocked: "🔓 BUƊE GENERATOR HUB",
+            followTxt: "BIYI ➔",
+            verifiedTxt: "✓ AN TABBATAR",
+            verifyingTxt: "ANA TABBATARWA",
+            platform: "Zaɓi Nau'in Na'ura",
+            model: "Suna Nau'in Waya",
+            ramLabel: "ZAƁI RAM DAKE WAYAR",
+            iphoneLabel: "ZAƁI JININ IPHONE",
+            year: "Shekarar Sayayya / Fito Waya",
+            shareTitle: "Yi Rarraba Don Buɗe Settings",
+            shareDesc: "Tura wannan ga kungiyoyin WhatsApp guda 2 don samun Full Red aim settings.",
+            shareBtn: "Rarraba A WhatsApp",
+            btn: "SAMU FULL RED SETTINGS",
+            headTitle: "🎯 Game Sensitivity (Ma'aunin 0 - 200)",
+            hudTitle: "🔥 Tsarin Jan Mawukani Disparo",
+            tweaksTitleAndroid: "📱 Tsarin Gyaran Android Aim-Lock",
+            tweaksTitleIphone: "🍎 Tsarin Gyaran iPhone Custom",
+            error: "❌ Da fatan za a shigar da sunan waya da shekarar da aka fitar da ita daidai!",
+            swipe: "JA ZUWA SAMA KAI",
+            copyBtn: "Kwafi Tsarin Sensitivity",
+            copiedTxt: "✓ An Kwafa!"
+        },
+        ig: {
+            lockTitle: "🔒 CHORỌ NNYOCHA ỌSỊSỌ NKE CHANNELS",
+            lockDesc: "Soro Channels WhatsApp abụọ dị n'okpuru ebe a ka mepee Aim Fix Generator Hub.",
+            btnChan1: "1. Soro Channel Mbụ",
+            btnChan2: "2. Soro Channel Nke Abụọ",
+            unlockBtnLocked: "🔒 EMESỊGHI MEPE",
+            unlockBtnUnlocked: "🔓 MEPE GENERATOR HUB",
+            followTxt: "SORO ➔",
+            verifiedTxt: "✓ ENYOCHALA YA",
+            verifyingTxt: "ANAA NYOCHA",
+            platform: "Rọrọ Ụdị Igwe",
+            model: "Aha Ụdị Igwe Gị",
+            ramLabel: "RỌRỌ RAM IGWE GỊ",
+            iphoneLabel: "RỌRỌ ỤDỊ IPHONE",
+            year: "Afo Azụrụ Ya / Afo Opụrụ",
+            shareTitle: "Keesaa Ka Mepee Settings",
+            shareDesc: "Keesaa ihe a na otu WhatsApp 2 ma ọ bụ чат ka inweta Full Red aim settings.",
+            shareBtn: "Keesaa Na WhatsApp",
+            btn: "INWETA FULL RED SETTINGS",
+            headTitle: "🎯 Sensitifiiti Egwuregwu (0 - 200 Scale)",
+            hudTitle: "🔥 Usoro Adọta Bọtịnụ Ọkụ",
+            tweaksTitleAndroid: "📱 Ntọala Sistemu Android Aim-Lock",
+            tweaksTitleIphone: "🍎 Ntọala Sistemu iPhone Custom",
+            error: "❌ Biko tinye aha igwe ziri ezi na afọ e wepụtara ya!",
+            swipe: "DỌRỌ GA ELU N'ISỊ",
+            copyBtn: "Kopịa Ntọala Sensitivity",
+            copiedTxt: "✓ Akopịala Ya!"
+        }
+    };
+
+    const androidRAMs = ["2 GB RAM", "3 GB RAM", "4 GB RAM", "6 GB RAM", "8 GB RAM", "12 GB RAM", "16 GB RAM"];
+    const iphoneSeries = [
+        "iPhone 6 / 6s / 7 / 8 Series",
+        "iPhone X / XR / XS / XS Max",
+        "iPhone 11 / 11 Pro / 11 Pro Max",
+        "iPhone 12 / 12 Mini / 12 Pro Max",
+        "iPhone 13 / 13 Mini / 13 Pro Max",
+        "iPhone 14 / 14 Plus / 14 Pro Max",
+        "iPhone 15 / 15 Plus / 15 Pro Max",
+        "iPhone 16 / 16 Plus / 16 Pro Max",
+        "iPhone 17 / 17 Air / 17 Pro Max",
+        "iPhone 18 / 18 Pro / 18 Pro Max / Ultra"
+    ];
+
+    function triggerHaptic() {
+        if (navigator.vibrate) navigator.vibrate(35);
+    }
+
+    window.onload = function() {
+        restoreStateOnLoad();
+    };
+
+    function openChannel(num) {
+        triggerHaptic();
+        saveFormState();
+        sessionStorage.setItem("pending_channel_click", num.toString());
+        sessionStorage.setItem("pending_channel_time", Date.now().toString());
+
+        const targetUrl = num === 1 ? channel1Url : channel2Url;
+        window.open(targetUrl, "_blank");
+
+        let timeLeft = 5;
+        const btnStatus = document.getElementById(num === 1 ? "chan1Status" : "chan2Status");
+        const t = translations[currentLang] || translations.en;
         
-        const FILE_SOURCE_ASSET = "https://www.mediafire.com/file/w2w9l9fghehucox/Aimdrive_x_fearless_2%25282%2529.zip/file";
-        const VIDEO_SOURCE_ASSET = "https://www.mediafire.com/file/95xkkx9q81ffuhn/AIM_DRIVE_SETUP_LINK_BY_FEARLESS.mp4/file";
+        btnStatus.innerText = `${t.verifyingTxt} (${timeLeft}s)...`;
 
-        const WA_FORWARD_MSG = encodeURIComponent(
-`*AIM DRIVE FULLY WORKING FOR MAIN ID🍃👇*_(FILE + SETUP)_
-
-*🔗Generator Link :* https://fearlessxaimdrive.netlify.app
-*🔗Update Channel :* https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E
-
-💬 Share with 5 groups or with your friends so you don't get errors when entering ☑️`
-        );
-
-        // --- MATRIX BACKGROUND ---
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-        let columns, drops = [];
-        const chars = "0101011001XXAIMDRIVEXITS//++--";
-        const fontSize = 14;
-
-        function initMatrix() {
-            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            columns = Math.floor(canvas.width / fontSize); drops = [];
-            for (let x = 0; x < columns; x++) drops[x] = 1;
-        }
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(5, 2, 10, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#b100ff'; ctx.font = fontSize + "px 'Share Tech Mono'";
-            for (let i = 0; i < drops.length; i++) {
-                const text = chars[Math.floor(Math.random() * chars.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                drops[i]++;
-            }
-        }
-        window.addEventListener('resize', initMatrix);
-        initMatrix(); setInterval(drawMatrix, 33);
-
-        // --- PHASE INTERFACE NAVIGATION ---
-        const loginJoinBtn = document.getElementById('loginJoinBtn');
-        const keyInput = document.getElementById('keyInput');
-        const submitKeyBtn = document.getElementById('submitKeyBtn');
-        const loginSection = document.getElementById('loginSection');
-        const verificationSection = document.getElementById('verificationSection');
-        const portalLoader = document.getElementById('portalLoader');
-        const mainCardFrame = document.getElementById('mainCardFrame');
-
-        loginJoinBtn.addEventListener('click', () => {
-            keyInput.removeAttribute('disabled');
-            keyInput.placeholder = "Enter key here...";
-            keyInput.focus();
-        });
-
-        keyInput.addEventListener('input', () => {
-            if (keyInput.value.trim().length > 0) {
-                submitKeyBtn.removeAttribute('disabled'); submitKeyBtn.classList.add('active');
+        const timer = setInterval(() => {
+            timeLeft--;
+            if (timeLeft > 0) {
+                btnStatus.innerText = `${t.verifyingTxt} (${timeLeft}s)...`;
             } else {
-                submitKeyBtn.setAttribute('disabled', 'true'); submitKeyBtn.classList.remove('active');
-            }
-        });
-
-        submitKeyBtn.addEventListener('click', () => {
-            if (keyInput.value.trim() === PASSKEY_TOKEN) {
-                submitKeyBtn.style.display = "none"; portalLoader.style.display = "flex";
-                setTimeout(() => {
-                    loginSection.classList.add('hidden'); verificationSection.classList.remove('hidden');
-                }, 1200);
-            } else {
-                alert("❌ Wrong key! Check your channel key link again.");
-                keyInput.value = ""; submitKeyBtn.setAttribute('disabled', 'true'); submitKeyBtn.classList.remove('active');
-            }
-        });
-
-        // --- TASKS PIPELINE ---
-        let step1Completed = false, step2Completed = false, activeSharesTracker = 0;
-        const vFollowBtn = document.getElementById('vFollowBtn');
-        const vReactBtn  = document.getElementById('vReactBtn');
-        const vShareBtn  = document.getElementById('vShareBtn');
-        const shareCounter = document.getElementById('shareCounter');
-        const stepsCounterTxt = document.getElementById('stepsCounterTxt');
-        const progressBar = document.getElementById('progressBar');
-        const lockStatus = document.getElementById('lockStatus');
-        const downloadGridContainer = document.getElementById('downloadGridContainer');
-
-        vFollowBtn.addEventListener('click', () => {
-            window.open(AD_CHANNEL_1, '_blank');
-            if (!step1Completed) {
-                step1Completed = true; vFollowBtn.className = "task-btn completed";
-                document.getElementById('fIcon').innerText = "✓";
-                vReactBtn.removeAttribute('disabled'); vReactBtn.className = "task-btn active";
-                document.getElementById('rIcon').innerText = "👉"; evaluateWorkflowSystem();
-            }
-        });
-
-        vReactBtn.addEventListener('click', () => {
-            window.open(AD_REACT_POST, '_blank');
-            if (!step2Completed) {
-                step2Completed = true; vReactBtn.className = "task-btn completed";
-                document.getElementById('rIcon').innerText = "✓";
-                vShareBtn.removeAttribute('disabled'); vShareBtn.className = "task-btn active";
-                evaluateWorkflowSystem();
-            }
-        });
-
-        vShareBtn.addEventListener('click', () => {
-            window.open(`https://api.whatsapp.com/send?text=${WA_FORWARD_MSG}`, '_blank');
-            if (activeSharesTracker < 5) {
-                activeSharesTracker++; shareCounter.innerText = `${activeSharesTracker} / 5`;
-                if (activeSharesTracker === 5) {
-                    vShareBtn.className = "task-btn completed"; evaluateWorkflowSystem();
+                clearInterval(timer);
+                if (num === 1) {
+                    followedChan1 = true;
+                    document.getElementById("btnChan1").className = "channel-btn done";
+                    btnStatus.innerText = t.verifiedTxt;
+                } else {
+                    followedChan2 = true;
+                    document.getElementById("btnChan2").className = "channel-btn done";
+                    btnStatus.innerText = t.verifiedTxt;
                 }
+                checkChannelUnlock();
+                saveFormState();
             }
+        }, 1000);
+    }
+
+    function checkChannelUnlock() {
+        const unlockBtn = document.getElementById("btnUnlockHub");
+        const t = translations[currentLang] || translations.en;
+        
+        if (followedChan1 && followedChan2) {
+            unlockBtn.disabled = false;
+            unlockBtn.innerText = t.unlockBtnUnlocked;
+            unlockBtn.style.background = "linear-gradient(135deg, #00e676 0%, #128C7E 100%)";
+            unlockBtn.style.color = "#fff";
+        }
+    }
+
+    function unlockHub() {
+        triggerHaptic();
+        document.getElementById("channelLockCard").style.display = "none";
+        document.getElementById("mainHubCard").style.display = "block";
+        saveFormState();
+    }
+
+    function saveFormState() {
+        const state = {
+            deviceName: document.getElementById("deviceName").value,
+            year: document.getElementById("year").value,
+            currentOS: currentOS,
+            selectedSpecValue: selectedSpecValue,
+            shareCount: shareCount,
+            followedChan1: followedChan1,
+            followedChan2: followedChan2,
+            hubUnlocked: document.getElementById("mainHubCard").style.display === "block",
+            timestamp: Date.now()
+        };
+        sessionStorage.setItem("aim_app_state", JSON.stringify(state));
+    }
+
+    function restoreStateOnLoad() {
+        const saved = sessionStorage.getItem("aim_app_state");
+        if (saved) {
+            try {
+                const data = JSON.parse(saved);
+                if (data.deviceName) document.getElementById("deviceName").value = data.deviceName;
+                if (data.year) document.getElementById("year").value = data.year;
+                if (data.currentOS) setOS(data.currentOS);
+                if (data.selectedSpecValue) {
+                    selectedSpecValue = data.selectedSpecValue;
+                    document.getElementById("specSelectedText").innerText = selectedSpecValue;
+                }
+
+                const t = translations[currentLang] || translations.en;
+
+                if (data.followedChan1) {
+                    followedChan1 = true;
+                    document.getElementById("btnChan1").className = "channel-btn done";
+                    document.getElementById("chan1Status").innerText = t.verifiedTxt;
+                }
+
+                if (data.followedChan2) {
+                    followedChan2 = true;
+                    document.getElementById("btnChan2").className = "channel-btn done";
+                    document.getElementById("chan2Status").innerText = t.verifiedTxt;
+                }
+
+                checkChannelUnlock();
+
+                if (data.hubUnlocked || (followedChan1 && followedChan2)) {
+                    document.getElementById("channelLockCard").style.display = "none";
+                    document.getElementById("mainHubCard").style.display = "block";
+                }
+
+                const pendingShareTime = sessionStorage.getItem("pending_share_time");
+                if (pendingShareTime) {
+                    const elapsed = (Date.now() - parseInt(pendingShareTime)) / 1000;
+                    sessionStorage.removeItem("pending_share_time");
+                    if (elapsed >= 5) {
+                        shareCount = Math.min(2, (data.shareCount || 0) + 1);
+                    } else {
+                        shareCount = data.shareCount || 0;
+                    }
+                } else {
+                    shareCount = data.shareCount || 0;
+                }
+
+                updateShareUI();
+                checkDeviceInput();
+            } catch(e) {
+                console.error("State restore error:", e);
+            }
+        }
+    }
+
+    function shareToWhatsApp() {
+        triggerHaptic();
+        saveFormState();
+        sessionStorage.setItem("pending_share_time", Date.now().toString());
+
+        const encodedMsg = encodeURIComponent(shareText);
+        const waUrl = `https://api.whatsapp.com/send?text=${encodedMsg}`;
+
+        window.open(waUrl, "_blank");
+
+        setTimeout(() => {
+            if (shareCount < 2) {
+                shareCount++;
+                updateShareUI();
+                saveFormState();
+            }
+        }, 5000);
+    }
+
+    function updateShareUI() {
+        document.getElementById("shareCountText").innerText = `${shareCount}/2`;
+        const percentage = (shareCount / 2) * 100;
+        document.getElementById("shareProgress").style.width = `${percentage}%`;
+
+        const btnGen = document.getElementById("btnGen");
+        if (shareCount >= 2) {
+            btnGen.disabled = false;
+        } else {
+            btnGen.disabled = true;
+        }
+    }
+
+    function openLangModal() {
+        triggerHaptic();
+        const modal = document.getElementById("optionModal");
+        const title = document.getElementById("modalTitle");
+        const list = document.getElementById("modalOptionsList");
+
+        list.innerHTML = "";
+        title.innerText = "Select Language / Select Language";
+
+        langList.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "modal-option";
+            div.innerHTML = `<span>${item.label}</span> <span>${currentLang === item.code ? '⚡' : ''}</span>`;
+            div.onclick = function() {
+                setLang(item.code, item.label);
+                closeModalDirect();
+            };
+            list.appendChild(div);
         });
 
-        // --- SECURE DOWNLOAD FUNCTION FIXED FOR MEDIAFIRE ---
-        function executeSecureProxyDownload(targetSource) {
-            // Replaced the buggy iframe injection with a direct window breakout 
-            // to allow MediaFire downloads to process error-free.
-            window.open(targetSource, '_blank');
+        modal.style.display = "flex";
+    }
+
+    function closeModalDirect() {
+        triggerHaptic();
+        document.getElementById("optionModal").style.display = "none";
+    }
+
+    function closeModalOnOverlay(e) {
+        if (e.target.id === "optionModal") {
+            closeModalDirect();
+        }
+    }
+
+    function setLang(lang, labelStr) {
+        currentLang = lang;
+        if (labelStr) document.getElementById("currentLangLabel").innerText = labelStr;
+        
+        const container = document.getElementById("mainContainer");
+        container.style.direction = lang === 'ar' ? "rtl" : "ltr";
+
+        const t = translations[currentLang] || translations.en;
+
+        // Dynamic Text Updates
+        document.getElementById("lockTitle").innerText = t.lockTitle;
+        document.getElementById("lockDesc").innerText = t.lockDesc;
+        document.getElementById("btnChan1Txt").innerText = t.btnChan1;
+        document.getElementById("btnChan2Txt").innerText = t.btnChan2;
+
+        if (!followedChan1) document.getElementById("chan1Status").innerText = t.followTxt;
+        if (!followedChan2) document.getElementById("chan2Status").innerText = t.followTxt;
+
+        if (!followedChan1 || !followedChan2) {
+            document.getElementById("btnUnlockHub").innerText = t.unlockBtnLocked;
+        } else {
+            document.getElementById("btnUnlockHub").innerText = t.unlockBtnUnlocked;
         }
 
-        function evaluateWorkflowSystem() {
-            let scoreTracker = 0;
-            if (step1Completed) scoreTracker++;
-            if (step2Completed) scoreTracker++;
-            if (activeSharesTracker === 5) scoreTracker++;
+        document.getElementById("lblPlatformTxt").innerText = t.platform;
+        document.getElementById("lblDeviceNameTxt").innerText = t.model;
+        document.getElementById("lblYearTxt").innerText = t.year;
+        document.getElementById("shareTitleTxt").innerText = t.shareTitle;
+        document.getElementById("shareDescText").innerText = t.shareDesc;
+        document.getElementById("shareBtnTxt").innerText = t.shareBtn;
+        document.getElementById("btnGenTxt").innerText = t.btn;
+        document.getElementById("headSensiTitle").innerText = t.headTitle;
+        document.getElementById("hudTitle").innerText = t.hudTitle;
+        document.getElementById("errorBox").innerText = t.error;
+        document.getElementById("svgSwipeTxt").textContent = t.swipe;
+        document.getElementById("copyBtnTxt").innerText = t.copyBtn;
 
-            stepsCounterTxt.innerText = scoreTracker;
-            progressBar.style.width = `${(scoreTracker / 3) * 100}%`;
+        setOS(currentOS);
+    }
 
-            if (scoreTracker === 3) {
-                lockStatus.innerText = "🔓 UNLOCKED SUCCESSFUL";
-                lockStatus.style.color = "#00ffaa";
+    function setOS(os) {
+        triggerHaptic();
+        currentOS = os;
+        document.getElementById("btnAndroid").className = os === 'android' ? "os-btn active" : "os-btn";
+        document.getElementById("btnIphone").className = os === 'iphone' ? "os-btn active" : "os-btn";
 
-                downloadGridContainer.innerHTML = `
-                    <button class="final-btn download-max" id="secureTriggerPayload">📥 DOWNLOAD AIM DRIVE ZIP</button>
-                    <button class="final-btn download-video" id="secureTriggerVideo">🎬 DOWNLOAD SETUP VIDEO</button>
-                    <button class="final-btn download-key" id="secureTriggerKey">🔑 VIEW FILE PASSWORD</button>
-                `;
+        const t = translations[currentLang] || translations.en;
 
-                document.getElementById('secureTriggerPayload').addEventListener('click', () => executeSecureProxyDownload(FILE_SOURCE_ASSET));
-                document.getElementById('secureTriggerVideo').addEventListener('click', () => executeSecureProxyDownload(VIDEO_SOURCE_ASSET));
-                document.getElementById('secureTriggerKey').addEventListener('click', () => {
-                    alert("🔑 FILE PASSWORD IS: 11\n\nUse this password to extract the zip file.");
-                });
-            }
+        if (os === 'android') {
+            document.getElementById("specLabelTxt").innerText = t.ramLabel;
+            if (!androidRAMs.includes(selectedSpecValue)) selectedSpecValue = "4 GB RAM";
+            document.getElementById("specSelectedText").innerText = selectedSpecValue;
+        } else {
+            document.getElementById("specLabelTxt").innerText = t.iphoneLabel;
+            if (!iphoneSeries.includes(selectedSpecValue)) selectedSpecValue = "iPhone 16 / 16 Plus / 16 Pro Max";
+            document.getElementById("specSelectedText").innerText = selectedSpecValue;
         }
-    </script>
+        saveFormState();
+    }
+
+    function checkDeviceInput() {
+        const inputEl = document.getElementById("deviceName");
+        const val = inputEl.value.trim();
+        const lowerVal = val.toLowerCase();
+        const statusEl = document.getElementById("liveStatus");
+
+        saveFormState();
+
+        if (val.length === 0) {
+            statusEl.style.display = "none";
+            return;
+        }
+
+        statusEl.style.display = "flex";
+
+        if (lowerVal.includes("iphone") || lowerVal.includes("ipad") || lowerVal.includes("apple")) {
+            if (currentOS !== "iphone") setOS("iphone");
+
+            if (lowerVal.includes("6") || lowerVal.includes("7") || lowerVal.includes("8")) selectedSpecValue = iphoneSeries[0];
+            else if (lowerVal.includes("x") || lowerVal.includes("xr") || lowerVal.includes("xs")) selectedSpecValue = iphoneSeries[1];
+            else if (lowerVal.includes("11")) selectedSpecValue = iphoneSeries[2];
+            else if (lowerVal.includes("12")) selectedSpecValue = iphoneSeries[3];
+            else if (lowerVal.includes("13")) selectedSpecValue = iphoneSeries[4];
+            else if (lowerVal.includes("14")) selectedSpecValue = iphoneSeries[5];
+            else if (lowerVal.includes("15")) selectedSpecValue = iphoneSeries[6];
+            else if (lowerVal.includes("16")) selectedSpecValue = iphoneSeries[7];
+            else if (lowerVal.includes("17")) selectedSpecValue = iphoneSeries[8];
+            else if (lowerVal.includes("18")) selectedSpecValue = iphoneSeries[9];
+            
+            document.getElementById("specSelectedText").innerText = selectedSpecValue;
+        } else {
+            if (currentOS !== "android") setOS("android");
+        }
+
+        if (val.length < 3) {
+            statusEl.innerText = "⚠️ Model name short. Type full name.";
+            statusEl.className = "live-status status-short";
+        } else {
+            statusEl.innerHTML = `<span>✓ Target Lock:</span> <strong>${val.toUpperCase()}</strong>`;
+            statusEl.className = "live-status status-ok";
+        }
+    }
+
+    function openSpecModal() {
+        triggerHaptic();
+        const modal = document.getElementById("optionModal");
+        const title = document.getElementById("modalTitle");
+        const list = document.getElementById("modalOptionsList");
+
+        list.innerHTML = "";
+        const t = translations[currentLang] || translations.en;
+        title.innerText = currentOS === "android" ? t.ramLabel : t.iphoneLabel;
+
+        const options = currentOS === "android" ? androidRAMs : iphoneSeries;
+
+        options.forEach(opt => {
+            const div = document.createElement("div");
+            div.className = "modal-option";
+            div.innerHTML = `<span>${opt}</span> <span>${selectedSpecValue === opt ? '⚡' : ''}</span>`;
+            div.onclick = function() {
+                selectedSpecValue = opt;
+                document.getElementById("specSelectedText").innerText = opt;
+                saveFormState();
+                closeModalDirect();
+            };
+            list.appendChild(div);
+        });
+
+        modal.style.display = "flex";
+    }
+
+    function hashCode(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            let char = str.charCodeAt(i);
+            hash = (hash << 5) - hash + char;
+            hash |= 0;
+        }
+        return Math.abs(hash);
+    }
+
+    function generateSensitivity() {
+        triggerHaptic();
+        if (shareCount < 2) return;
+
+        const inputName = document.getElementById("deviceName").value.trim();
+        const yearInput = document.getElementById("year").value;
+        const year = parseInt(yearInput);
+
+        const errorBox = document.getElementById("errorBox");
+        const resultBox = document.getElementById("resultBox");
+
+        if (inputName.length < 3 || !year || year < 2010 || year > 2027) {
+            errorBox.style.display = "block";
+            resultBox.style.display = "none";
+            return;
+        }
+
+        errorBox.style.display = "none";
+        const seed = hashCode(inputName.toLowerCase() + "_" + selectedSpecValue + "_" + year + "_" + currentOS);
+
+        let baseGen = 194 + (seed % 5) - ((year - 2018) * 1.1);
+        if (baseGen > 199) baseGen = 199;
+        if (baseGen < 155) baseGen = 155;
+
+        generatedSensValues = {
+            general: Math.min(200, Math.max(140, Math.round(baseGen))),
+            redDot: Math.min(200, Math.max(130, Math.round(baseGen - 5 + (seed % 4)))),
+            scope2x: Math.min(200, Math.max(115, Math.round(baseGen - 12 + (seed % 3)))),
+            scope4x: Math.min(200, Math.max(95, Math.round(baseGen - 21 + (seed % 3)))),
+            sniper: Math.min(150, Math.max(50, Math.round(78 + (seed % 20)))),
+            freeLook: Math.min(200, Math.max(90, Math.round(115 + (seed % 30)))),
+            buttonSize: 44 + (seed % 7),
+            dpi: 420 + (seed % 160)
+        };
+
+        document.getElementById("deviceBadge").innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            TARGET LOCK: ${inputName.toUpperCase()} (${selectedSpecValue} | ${year})
+        `;
+        document.getElementById("resGen").innerHTML = `${generatedSensValues.general} <span class="unit">RED LOCK</span>`;
+        document.getElementById("resRed").innerHTML = `${generatedSensValues.redDot} <span class="unit">BOOSTER</span>`;
+        document.getElementById("res2x").innerHTML = `${generatedSensValues.scope2x} <span class="unit">STABLE</span>`;
+        document.getElementById("res4x").innerHTML = `${generatedSensValues.scope4x} <span class="unit">NO RECOIL</span>`;
+        document.getElementById("resSniper").innerHTML = `${generatedSensValues.sniper} <span class="unit">ONE-TAP</span>`;
+        document.getElementById("resFree").innerHTML = `${generatedSensValues.freeLook} <span class="unit">SMOOTH</span>`;
+
+        document.getElementById("fireBtnAdvice").innerText = `Fire Button: ${generatedSensValues.buttonSize}% | Lower Right Placement`;
+
+        const tweaksContainer = document.getElementById("tweaksContainer");
+        const tweaksTitle = document.getElementById("systemTweaksTitle");
+        const t = translations[currentLang] || translations.en;
+
+        if (currentOS === "iphone") {
+            tweaksTitle.innerText = t.tweaksTitleIphone;
+            tweaksContainer.innerHTML = `
+                <ol>
+                    <li><strong>Fire Button Size:</strong> <code>${generatedSensValues.buttonSize}%</code> (Swipe straight up).</li>
+                    <li><strong>Tracking Sensitivity:</strong> Max Far-Right Slider. <em>(Accessibility > Touch > AssistiveTouch)</em></li>
+                    <li><strong>Touch Accommodations:</strong> Turn ON, Hold Duration = <code>0.10s</code>.</li>
+                    <li><strong>Pointer Speed:</strong> Set slider to maximum <code>100%</code>.</li>
+                </ol>
+            `;
+        } else {
+            tweaksTitle.innerText = t.tweaksTitleAndroid;
+            tweaksContainer.innerHTML = `
+                <ol>
+                    <li><strong>Fire Button Size:</strong> <code>${generatedSensValues.buttonSize}%</code></li>
+                    <li><strong>Developer DPI:</strong> Set to <code>${generatedSensValues.dpi} DPI</code>.</li>
+                    <li><strong>Pointer Speed:</strong> Set to <code>Maximum Fast</code>. <em>(Language & Input)</em></li>
+                    <li><strong>Touch & Hold Delay:</strong> Set to <code>Short (0.5s or 0.2s)</code>.</li>
+                    <li><strong>Animator Duration Scale:</strong> Set to <code>0.5x or OFF</code>.</li>
+                </ol>
+            `;
+        }
+
+        resultBox.style.display = "block";
+        resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copySensitivityToClipboard() {
+        triggerHaptic();
+        if (!generatedSensValues.general) return;
+
+        const textToCopy = `🎯 AIM FIX SENSI FOR ${document.getElementById("deviceName").value.toUpperCase()}
+• General: ${generatedSensValues.general}
+• Red Dot: ${generatedSensValues.redDot}
+• 2x Scope: ${generatedSensValues.scope2x}
+• 4x Scope: ${generatedSensValues.scope4x}
+• Sniper Scope: ${generatedSensValues.sniper}
+• Free Look: ${generatedSensValues.freeLook}
+• Fire Button Size: ${generatedSensValues.buttonSize}%
+Generated by FEARLESS XITS: https://aimfixsettings.netlify.app`;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const btnTxt = document.getElementById("copyBtnTxt");
+            const t = translations[currentLang] || translations.en;
+            btnTxt.innerText = t.copiedTxt || "✓ Copied!";
+            setTimeout(() => {
+                btnTxt.innerText = t.copyBtn || "Copy Sensitivity Settings";
+            }, 2500);
+        });
+    }
+</script>
+
 </body>
 </html>
