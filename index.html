@@ -737,7 +737,7 @@
                 🔒 CHANNEL VERIFICATION REQUIRED
             </div>
             <div class="verify-desc" id="lockDesc">
-                Follow both WhatsApp Channels below to unlock access to the Aim Fix Generator Hub.
+                Follow all WhatsApp Channels below to unlock access to the Aim Fix Generator Hub.
             </div>
 
             <button class="channel-btn" id="btnChan1" onclick="openChannel(1)">
@@ -748,6 +748,11 @@
             <button class="channel-btn" id="btnChan2" onclick="openChannel(2)">
                 <span id="btnChan2Txt">2. Follow Secondary Channel</span>
                 <span id="chan2Status">FOLLOW ➔</span>
+            </button>
+
+            <button class="channel-btn" id="btnChan3" onclick="openChannel(3)">
+                <span id="btnChan3Txt">3. Follow Final Channel</span>
+                <span id="chan3Status">FOLLOW ➔</span>
             </button>
 
             <button class="verify-access-btn" id="btnUnlockHub" onclick="unlockHub()" disabled>
@@ -894,9 +899,11 @@
 
     let followedChan1 = false;
     let followedChan2 = false;
+    let followedChan3 = false;
 
     const channel1Url = "https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E";
     const channel2Url = "https://whatsapp.com/channel/0029Vb8dD7a5q08gPKk13w2R";
+    const channel3Url = "https://whatsapp.com/channel/0029VbEGYSlIXnlnVTIs1b2P";
 
     const shareText = `*BEST AIM FIX SETTINGS + SENSI (IOS/ANDROID)🔥💀*
 Tested and working for me ❤️☑️
@@ -932,9 +939,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
     const translations = {
         en: {
             lockTitle: "🔒 CHANNEL VERIFICATION REQUIRED",
-            lockDesc: "Follow both WhatsApp Channels below to unlock access to the Aim Fix Generator Hub.",
+            lockDesc: "Follow all WhatsApp Channels below to unlock access to the Aim Fix Generator Hub.",
             btnChan1: "1. Follow Primary Channel",
             btnChan2: "2. Follow Secondary Channel",
+            btnChan3: "3. Follow Final Channel",
             unlockBtnLocked: "🔒 UNLOCK GENERATOR HUB",
             unlockBtnUnlocked: "🔓 ACCESS GENERATOR HUB",
             followTxt: "FOLLOW ➔",
@@ -960,9 +968,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         id: {
             lockTitle: "🔒 VERIFIKASI SALURAN DIPERLUKAN",
-            lockDesc: "Ikuti kedua Saluran WhatsApp di bawah ini untuk membuka akses ke Aim Fix Generator Hub.",
+            lockDesc: "Ikuti seluruh Saluran WhatsApp di bawah ini untuk membuka akses ke Aim Fix Generator Hub.",
             btnChan1: "1. Ikuti Saluran Utama",
             btnChan2: "2. Ikuti Saluran Kedua",
+            btnChan3: "3. Ikuti Saluran Ketiga",
             unlockBtnLocked: "🔒 BUKA GENERATOR HUB",
             unlockBtnUnlocked: "🔓 AKSES GENERATOR HUB",
             followTxt: "IKUTI ➔",
@@ -988,9 +997,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         pcm: {
             lockTitle: "🔒 YOU MUST FOLLOW THE CHANNELS FIRST",
-            lockDesc: "Follow these two WhatsApp Channels below so you go fit open the Aim Fix Generator Hub.",
+            lockDesc: "Follow all these WhatsApp Channels below so you go fit open the Aim Fix Generator Hub.",
             btnChan1: "1. Follow First Channel",
             btnChan2: "2. Follow Second Channel",
+            btnChan3: "3. Follow Third Channel",
             unlockBtnLocked: "🔒 UNLOCK GENERATOR HUB",
             unlockBtnUnlocked: "🔓 OPEN GENERATOR HUB NOW",
             followTxt: "FOLLOW AM ➔",
@@ -1016,9 +1026,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         es: {
             lockTitle: "🔒 VERIFICACIÓN DE CANAL REQUERIDA",
-            lockDesc: "Sigue ambos canales de WhatsApp a continuación para desbloquear el generador de sensibilidad.",
+            lockDesc: "Sigue todos los canales de WhatsApp a continuación para desbloquear el generador de sensibilidad.",
             btnChan1: "1. Seguir Canal Principal",
             btnChan2: "2. Seguir Canal Secundario",
+            btnChan3: "3. Seguir Canal Final",
             unlockBtnLocked: "🔒 BLOQUEADO",
             unlockBtnUnlocked: "🔓 ACCEDER AL GENERADOR",
             followTxt: "SEGUIR ➔",
@@ -1044,9 +1055,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         pt: {
             lockTitle: "🔒 VERIFICAÇÃO DE CANAL NECESSÁRIA",
-            lockDesc: "Siga ambos os canais do WhatsApp abaixo para desbloquear o gerador de sensibilidade.",
+            lockDesc: "Siga todos os canais do WhatsApp abaixo para desbloquear o gerador de sensibilidade.",
             btnChan1: "1. Seguir Canal Principal",
             btnChan2: "2. Seguir Canal Secundário",
+            btnChan3: "3. Seguir Canal Final",
             unlockBtnLocked: "🔒 BLOQUEADO",
             unlockBtnUnlocked: "🔓 ACESSAR GERADOR",
             followTxt: "SEGUIR ➔",
@@ -1072,9 +1084,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         vi: {
             lockTitle: "🔒 YÊU CẦU XÁC MINH KÊNH",
-            lockDesc: "Theo dõi cả hai Kênh WhatsApp bên dưới để mở khóa công cụ Aim Fix Generator.",
+            lockDesc: "Theo dõi tất cả các Kênh WhatsApp bên dưới để mở khóa công cụ Aim Fix Generator.",
             btnChan1: "1. Theo Dõi Kênh Chính",
             btnChan2: "2. Theo Dõi Kênh Phụ",
+            btnChan3: "3. Theo Dõi Kênh Thứ 3",
             unlockBtnLocked: "🔒 MỞ KHÓA GENERATOR",
             unlockBtnUnlocked: "🔓 TRUY CẬP GENERATOR",
             followTxt: "THEO DÕI ➔",
@@ -1100,9 +1113,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         ms: {
             lockTitle: "🔒 PENGESAHAN SALURAN DIPERLUKAN",
-            lockDesc: "Ikuti kedua-dua Saluran WhatsApp di bawah untuk membuka akses ke Aim Fix Generator Hub.",
+            lockDesc: "Ikuti semua Saluran WhatsApp di bawah untuk membuka akses ke Aim Fix Generator Hub.",
             btnChan1: "1. Ikuti Saluran Utama",
             btnChan2: "2. Ikuti Saluran Kedua",
+            btnChan3: "3. Ikuti Saluran Ketiga",
             unlockBtnLocked: "🔒 BUKA GENERATOR HUB",
             unlockBtnUnlocked: "🔓 AKSES GENERATOR HUB",
             followTxt: "IKUTI ➔",
@@ -1128,9 +1142,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         ru: {
             lockTitle: "🔒 ТРЕБУЕТСЯ ПРОВЕРКА КАНАЛА",
-            lockDesc: "Подпишитесь на оба канала WhatsApp ниже, чтобы открыть доступ к Aim Fix Generator Hub.",
+            lockDesc: "Подпишитесь на все каналы WhatsApp ниже, чтобы открыть доступ к Aim Fix Generator Hub.",
             btnChan1: "1. Подписаться на Главный Канал",
             btnChan2: "2. Подписаться на Второй Канал",
+            btnChan3: "3. Подписаться на Третий Канал",
             unlockBtnLocked: "🔒 РАЗБЛОКИРОВАТЬ ХАБ",
             unlockBtnUnlocked: "🔓 ОТКРЫТЬ ГЕНЕРАТОР",
             followTxt: "ПОДПИСАТЬСЯ ➔",
@@ -1156,9 +1171,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         ar: {
             lockTitle: "🔒 التحقق من القناة مطلوب",
-            lockDesc: "تابع كلتا قناتي واتساب أدناه لفتح الوصول إلى مركز إعدادات تصويب الهدف.",
+            lockDesc: "تابع جميع قنوات واتساب أدناه لفتح الوصول إلى مركز إعدادات تصويب الهدف.",
             btnChan1: "1. متابعة القناة الأساسية",
             btnChan2: "2. متابعة القناة الثانوية",
+            btnChan3: "3. متابعة القناة الثالثة",
             unlockBtnLocked: "🔒 المولد مغلق",
             unlockBtnUnlocked: "🔓 فتح مركز المولد",
             followTxt: "متابعة ➔",
@@ -1184,9 +1200,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         tr: {
             lockTitle: "🔒 KANAL DOĞRULAMASI GEREKLİ",
-            lockDesc: "Aim Fix Generator Hub erişimini açmak için aşağıdaki iki WhatsApp kanalını takip edin.",
+            lockDesc: "Aim Fix Generator Hub erişimini açmak için aşağıdaki tüm WhatsApp kanallarını takip edin.",
             btnChan1: "1. Ana Kanalı Takip Et",
             btnChan2: "2. İkincil Kanalı Takip Et",
+            btnChan3: "3. Üçüncü Kanalı Takip Et",
             unlockBtnLocked: "🔒 JENERATÖRÜ AÇ",
             unlockBtnUnlocked: "🔓 JENERATÖRE GİRİŞ YAP",
             followTxt: "TAKİP ET ➔",
@@ -1212,9 +1229,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         th: {
             lockTitle: "🔒 จำเป็นต้องยืนยันตัวตนช่อง",
-            lockDesc: "กดติดตามทั้งสองช่อง WhatsApp ด้านล่างเพื่อปลดล็อก Aim Fix Generator Hub",
+            lockDesc: "กดติดตามทุกช่อง WhatsApp ด้านล่างเพื่อปลดล็อก Aim Fix Generator Hub",
             btnChan1: "1. ติดตามช่องหลัก",
             btnChan2: "2. ติดตามช่องสำรอง",
+            btnChan3: "3. ติดตามช่องที่สาม",
             unlockBtnLocked: "🔒 ปลดล็อก GENERATOR HUB",
             unlockBtnUnlocked: "🔓 เข้าสู่ GENERATOR HUB",
             followTxt: "ติดตาม ➔",
@@ -1240,9 +1258,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         'zh-TW': {
             lockTitle: "🔒 需要頻道驗證",
-            lockDesc: "請關注下方兩個 WhatsApp 頻道以解鎖 Aim Fix Generator Hub。",
+            lockDesc: "請關注下方所有 WhatsApp 頻道以解鎖 Aim Fix Generator Hub。",
             btnChan1: "1. 關注主頻道",
             btnChan2: "2. 關注副頻道",
+            btnChan3: "3. 關注第三頻道",
             unlockBtnLocked: "🔒 解鎖生成器中心",
             unlockBtnUnlocked: "🔓 進入生成器中心",
             followTxt: "關注 ➔",
@@ -1268,9 +1287,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         'zh-CN': {
             lockTitle: "🔒 需要频道验证",
-            lockDesc: "请关注下方两个 WhatsApp 频道以解锁 Aim Fix Generator Hub。",
+            lockDesc: "请关注下方所有 WhatsApp 频道以解锁 Aim Fix Generator Hub。",
             btnChan1: "1. 关注主频道",
             btnChan2: "2. 关注副频道",
+            btnChan3: "3. 关注第三频道",
             unlockBtnLocked: "🔒 解锁生成器中心",
             unlockBtnUnlocked: "🔓 进入生成器中心",
             followTxt: "关注 ➔",
@@ -1296,9 +1316,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         fr: {
             lockTitle: "🔒 VÉRIFICATION DE CHAÎNE REQUISE",
-            lockDesc: "Suivez les deux chaînes WhatsApp ci-dessous pour débloquer l'accès au générateur.",
+            lockDesc: "Suivez toutes les chaînes WhatsApp ci-dessous pour débloquer l'accès au générateur.",
             btnChan1: "1. Suivre la Chaîne Principale",
             btnChan2: "2. Suivre la Chaîne Secondaire",
+            btnChan3: "3. Suivre la Troisième Chaîne",
             unlockBtnLocked: "🔒 REQUIS DE DÉBLOQUER",
             unlockBtnUnlocked: "🔓 ACCÉDER AU GÉNÉRATEUR",
             followTxt: "SUIVRE ➔",
@@ -1324,9 +1345,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         de: {
             lockTitle: "🔒 KANAL-VERIFIZIERUNG ERFORDERLICH",
-            lockDesc: "Folge beiden WhatsApp-Kanälen unten, um den Aim Fix Generator Hub freizuschalten.",
+            lockDesc: "Folge allen WhatsApp-Kanälen unten, um den Aim Fix Generator Hub freizuschalten.",
             btnChan1: "1. Hauptkanal Folgen",
             btnChan2: "2. Zweitkanal Folgen",
+            btnChan3: "3. Drittkanal Folgen",
             unlockBtnLocked: "🔒 HUB FREISCHALTEN",
             unlockBtnUnlocked: "🔓 ZUM GENERATOR HUB",
             followTxt: "FOLGEN ➔",
@@ -1355,6 +1377,7 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
             lockDesc: "एम फिक्स जनरेटर अनलॉका करने के लिए नीचे दिए गए WhatsApp चैनलों को फॉलो करें।",
             btnChan1: "1. मुख्य चैनल फॉलो करें",
             btnChan2: "2. द्वितीयक चैनल फॉलो करें",
+            btnChan3: "3. तीसरा चैनल फॉलो करें",
             unlockBtnLocked: "🔒 अनलॉक करें",
             unlockBtnUnlocked: "🔓 जनरेटर हब खोलें",
             followTxt: "FOLLOW ➔",
@@ -1380,9 +1403,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         yo: {
             lockTitle: "🔒 A NIKAN TẸLE AWỌN ÍKÀNṢÍ YÌÍ",
-            lockDesc: "Tẹle awọn íkànṣí WhatsApp mejeeji ti o wa nisalẹ lati ṣi Generator Hub ti Aim Fix.",
+            lockDesc: "Tẹle gbogbo awọn íkànṣí WhatsApp ti o wa nisalẹ lati ṣi Generator Hub ti Aim Fix.",
             btnChan1: "1. Tẹle Íkànṣí Akọkọ",
             btnChan2: "2. Tẹle Íkànṣí Ekeji",
+            btnChan3: "3. Tẹle Íkànṣí Ekẹta",
             unlockBtnLocked: "🔒 TI APÁ YÌÍ PADÀ",
             unlockBtnUnlocked: "🔓 BẸ̀RẸ̀ SÍ LO GENERATOR HUB",
             followTxt: "TẸ̀LE ➔",
@@ -1408,9 +1432,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         ha: {
             lockTitle: "🔒 ANA BUKATAR TABBATAR DA TASHOSHIN",
-            lockDesc: "Biyi tashoshin WhatsApp guda biyu na ƙasa don buɗe Aim Fix Generator Hub.",
+            lockDesc: "Biyi duk tashoshin WhatsApp na ƙasa don buɗe Aim Fix Generator Hub.",
             btnChan1: "1. Biyi Tashar Farko",
             btnChan2: "2. Biyi Tashar Taki Biyu",
+            btnChan3: "3. Biyi Tashar Taki Uku",
             unlockBtnLocked: "🔒 KULLE WURI",
             unlockBtnUnlocked: "🔓 BUƊE GENERATOR HUB",
             followTxt: "BIYI ➔",
@@ -1436,9 +1461,10 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         },
         ig: {
             lockTitle: "🔒 CHORỌ NNYOCHA ỌSỊSỌ NKE CHANNELS",
-            lockDesc: "Soro Channels WhatsApp abụọ dị n'okpuru ebe a ka mepee Aim Fix Generator Hub.",
+            lockDesc: "Soro Channels WhatsApp niile dị n'okpuru ebe a ka mepee Aim Fix Generator Hub.",
             btnChan1: "1. Soro Channel Mbụ",
             btnChan2: "2. Soro Channel Nke Abụọ",
+            btnChan3: "3. Soro Channel Nke Atọ",
             unlockBtnLocked: "🔒 EMESỊGHI MEPE",
             unlockBtnUnlocked: "🔓 MEPE GENERATOR HUB",
             followTxt: "SORO ➔",
@@ -1492,11 +1518,18 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         sessionStorage.setItem("pending_channel_click", num.toString());
         sessionStorage.setItem("pending_channel_time", Date.now().toString());
 
-        const targetUrl = num === 1 ? channel1Url : channel2Url;
+        let targetUrl = channel1Url;
+        if (num === 2) targetUrl = channel2Url;
+        if (num === 3) targetUrl = channel3Url;
+
         window.open(targetUrl, "_blank");
 
         let timeLeft = 5;
-        const btnStatus = document.getElementById(num === 1 ? "chan1Status" : "chan2Status");
+        let btnStatusId = "chan1Status";
+        if (num === 2) btnStatusId = "chan2Status";
+        if (num === 3) btnStatusId = "chan3Status";
+
+        const btnStatus = document.getElementById(btnStatusId);
         const t = translations[currentLang] || translations.en;
         
         btnStatus.innerText = `${t.verifyingTxt} (${timeLeft}s)...`;
@@ -1511,9 +1544,13 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
                     followedChan1 = true;
                     document.getElementById("btnChan1").className = "channel-btn done";
                     btnStatus.innerText = t.verifiedTxt;
-                } else {
+                } else if (num === 2) {
                     followedChan2 = true;
                     document.getElementById("btnChan2").className = "channel-btn done";
+                    btnStatus.innerText = t.verifiedTxt;
+                } else if (num === 3) {
+                    followedChan3 = true;
+                    document.getElementById("btnChan3").className = "channel-btn done";
                     btnStatus.innerText = t.verifiedTxt;
                 }
                 checkChannelUnlock();
@@ -1526,7 +1563,7 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         const unlockBtn = document.getElementById("btnUnlockHub");
         const t = translations[currentLang] || translations.en;
         
-        if (followedChan1 && followedChan2) {
+        if (followedChan1 && followedChan2 && followedChan3) {
             unlockBtn.disabled = false;
             unlockBtn.innerText = t.unlockBtnUnlocked;
             unlockBtn.style.background = "linear-gradient(135deg, #00e676 0%, #128C7E 100%)";
@@ -1550,6 +1587,7 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
             shareCount: shareCount,
             followedChan1: followedChan1,
             followedChan2: followedChan2,
+            followedChan3: followedChan3,
             hubUnlocked: document.getElementById("mainHubCard").style.display === "block",
             timestamp: Date.now()
         };
@@ -1583,9 +1621,15 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
                     document.getElementById("chan2Status").innerText = t.verifiedTxt;
                 }
 
+                if (data.followedChan3) {
+                    followedChan3 = true;
+                    document.getElementById("btnChan3").className = "channel-btn done";
+                    document.getElementById("chan3Status").innerText = t.verifiedTxt;
+                }
+
                 checkChannelUnlock();
 
-                if (data.hubUnlocked || (followedChan1 && followedChan2)) {
+                if (data.hubUnlocked || (followedChan1 && followedChan2 && followedChan3)) {
                     document.getElementById("channelLockCard").style.display = "none";
                     document.getElementById("mainHubCard").style.display = "block";
                 }
@@ -1691,11 +1735,13 @@ Follow Channel 👆Get some FREE IOS SETTING AND SENSITIVITY and ANDROID free Fi
         document.getElementById("lockDesc").innerText = t.lockDesc;
         document.getElementById("btnChan1Txt").innerText = t.btnChan1;
         document.getElementById("btnChan2Txt").innerText = t.btnChan2;
+        document.getElementById("btnChan3Txt").innerText = t.btnChan3;
 
         if (!followedChan1) document.getElementById("chan1Status").innerText = t.followTxt;
         if (!followedChan2) document.getElementById("chan2Status").innerText = t.followTxt;
+        if (!followedChan3) document.getElementById("chan3Status").innerText = t.followTxt;
 
-        if (!followedChan1 || !followedChan2) {
+        if (!followedChan1 || !followedChan2 || !followedChan3) {
             document.getElementById("btnUnlockHub").innerText = t.unlockBtnLocked;
         } else {
             document.getElementById("btnUnlockHub").innerText = t.unlockBtnUnlocked;
